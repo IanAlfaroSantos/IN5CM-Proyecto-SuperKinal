@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ianalfaro.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="775.0" fitWidth="950.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/FondoMenuPrincipal.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="950.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+              <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Clientes" />
+                  <MenuItem fx:id="btnMenuCargos" mnemonicParsing="false" onAction="#handleButtonAction" text="Cargos" />
+                  <MenuItem fx:id="btnMenuEmpleados" mnemonicParsing="false" onAction="#handleButtonAction" text="Empleados" />
+                  <MenuItem fx:id="btnMenuFacturas" mnemonicParsing="false" onAction="#handleButtonAction" text="Facturas" />
+                  <MenuItem fx:id="btnMenuTickets" mnemonicParsing="false" onAction="#handleButtonAction" text="Tickets Soportes" />
+                  <MenuItem fx:id="btnMenuDistribuidores" mnemonicParsing="false" onAction="#handleButtonAction" text="Distribuidores" />
+                  <MenuItem fx:id="btnMenuCategorias" mnemonicParsing="false" onAction="#handleButtonAction" text="Categorias Productos" />
+                  <MenuItem fx:id="btnMenuProductos" mnemonicParsing="false" onAction="#handleButtonAction" text="Productos" />
+                  <MenuItem fx:id="btnMenuPromociones" mnemonicParsing="false" onAction="#handleButtonAction" text="Promociones" />
+                  <MenuItem fx:id="btnMenuDetallesFacturas" mnemonicParsing="false" onAction="#handleButtonAction" text="Detalles Facturas" />
+                  <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#handleButtonAction" text="Compras" />
+                  <MenuItem fx:id="btnMenuDetallesCompras" mnemonicParsing="false" onAction="#handleButtonAction" text="Detalles Compras" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes" />
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

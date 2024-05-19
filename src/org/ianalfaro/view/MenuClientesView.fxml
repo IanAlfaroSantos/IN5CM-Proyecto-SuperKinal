@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ianalfaro.controller.MenuClientesController">
+   <children>
+      <ImageView fitHeight="850.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/FondoMenuClientes.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblClientes" layoutX="179.0" layoutY="139.0" prefHeight="542.0" prefWidth="853.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
+        <columns>
+          <TableColumn fx:id="colClienteId" minWidth="0.0" prefWidth="103.0" text="CLIENTE ID" />
+            <TableColumn fx:id="colNombre" minWidth="0.0" prefWidth="150.0" text="NOMBRE" />
+            <TableColumn fx:id="colApellido" minWidth="0.0" prefWidth="150.0" text="APELLIDO" />
+            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="150.0" text="TELEFONO" />
+            <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="150.0" text="DIRECCION" />
+          <TableColumn fx:id="colNit" minWidth="0.0" prefWidth="150.0" text="NIT" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="119.0" layoutY="681.0" prefHeight="129.0" prefWidth="973.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="AGREGAR" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="EDITAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="ELIMINAR" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="REPORTES" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
+      <TextField fx:id="tfClienteId" layoutX="733.0" layoutY="92.0" prefHeight="39.0" prefWidth="249.0" promptText="Ingrese el ID del cliente a buscar" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button fx:id="btnBuscar" layoutX="985.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="16.0" prefWidth="36.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/CrudBuscar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
