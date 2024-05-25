@@ -6,9 +6,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -16,27 +13,14 @@
    <children>
       <ImageView fitHeight="850.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/FondoMenuCargos.png" />
+            <Image url="@../image/FondoMenuDetalleFacturas.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="337.0" layoutY="663.0" prefHeight="188.0" prefWidth="468.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="243.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="225.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="GUARDAR" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="CANCELAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-         </children>
-      </GridPane>
-      <TextField fx:id="tfProductoId" layoutX="25.0" layoutY="199.0" prefHeight="39.0" prefWidth="254.0" promptText="Ingrese el ID del producto a buscar" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
+      <TextField fx:id="tfProductoId" layoutX="60.0" layoutY="187.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="417.0" promptText="Ingrese el ID del producto a buscar" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="btnBuscar" layoutX="290.0" layoutY="199.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="16.0" prefWidth="36.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
+      <Button fx:id="btnBuscar" layoutX="486.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="16.0" prefWidth="36.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,32 +29,33 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fx:id="imgCargar" fitHeight="327.0" fitWidth="391.0" layoutX="763.0" layoutY="317.0" onDragDropped="#handleOnDrop" onDragOver="#handleOnDrag" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgCargar" fitHeight="327.0" fitWidth="391.0" layoutX="761.0" layoutY="181.0" onDragDropped="#handleOnDrop" onDragOver="#handleOnDrag" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/ArrastreLaImagen.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfNombreProducto" layoutX="783.0" layoutY="624.0" prefHeight="39.0" prefWidth="254.0" promptText="Ingrese el nombre del producto" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Button fx:id="btnCargar" layoutX="1048.0" layoutY="624.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="91.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);" text="CARGAR" />
-      <Text fill="RED" layoutX="755.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ARRASTRE Y SUELTE LA IMAGEN">
+      <Button fx:id="btnCargarImagen" layoutX="870.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);" text="CARGAR IMAGEN" />
+      <Text fill="RED" layoutX="741.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ARRASTRE Y SUELTE LA IMAGEN">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="RED" layoutX="25.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INGRESE EL ID DEL PRODUCTO">
+      <Text fill="RED" layoutX="60.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INGRESE EL ID DEL PRODUCTO A BUSCAR">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Label fx:id="lblNombre" layoutX="25.0" layoutY="259.0" prefHeight="35.0" prefWidth="131.0">
+      <Label fx:id="lblNombreProducto" layoutX="60.0" layoutY="239.0" prefHeight="35.0" prefWidth="188.0" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgMostrar" fitHeight="281.0" fitWidth="349.0" layoutX="74.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgMostrar" fitHeight="327.0" fitWidth="473.0" layoutX="60.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="WHITE" layoutX="241.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGREGAR IMAGEN PRODUCTO" wrappingWidth="1000.13671875">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnBack" layoutX="18.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
    </children>
 </AnchorPane>

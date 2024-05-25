@@ -101,7 +101,7 @@ public class MenuComprasController implements Initializable {
         }
         colCompraId.setCellValueFactory(new PropertyValueFactory<Compra, Integer>("compraId"));
         colFechaCompra.setCellValueFactory(new PropertyValueFactory<Compra, String>("fechaCompra"));
-        colTotalCompra.setCellValueFactory(new PropertyValueFactory<Compra, String>("totalCompra"));
+        colTotalCompra.setCellValueFactory(new PropertyValueFactory<Compra, Double>("totalCompra"));
     }
     
     public ObservableList<Compra> listarCompra(){

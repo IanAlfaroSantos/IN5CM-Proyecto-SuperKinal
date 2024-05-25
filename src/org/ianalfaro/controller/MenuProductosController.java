@@ -5,9 +5,6 @@
  */
 package org.ianalfaro.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.net.URL;
 import java.sql.Blob;
 import java.sql.Connection;
@@ -15,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.ianalfaro.dao.Conexion;
+import org.ianalfaro.dto.ProductoDTO;
 import org.ianalfaro.model.CategoriaProducto;
 import org.ianalfaro.model.Distribuidor;
 import org.ianalfaro.model.Producto;
@@ -86,7 +83,11 @@ public class MenuProductosController implements Initializable {
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
                 vaciarForm();
+                cargarDatos();
             }
+        }else if(event.getSource() == btnAgregarImagen){
+            ProductoDTO.getProductoDTO().setProducto((Producto)tblProductos.getSelectionModel().getSelectedItem());
+            stage.formProductoView();
         }
     }
     

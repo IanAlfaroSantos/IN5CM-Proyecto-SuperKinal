@@ -39,7 +39,7 @@ public class FormEmpleadoController implements Initializable {
     private static ResultSet resultSet = null;
     
    @FXML
-    Button btnCancelar, btnGuardar;
+   Button btnCancelar, btnGuardar;
    
    @FXML
    TextField tfEmpleadoId;
@@ -49,15 +49,16 @@ public class FormEmpleadoController implements Initializable {
    
    @FXML
    public void handleButtonAction(ActionEvent event) {
-    
         if(event.getSource() == btnCancelar){
-            EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
             stage.menuEmpleadoView();
+            EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
         }else if(event.getSource() == btnGuardar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505).get() == ButtonType.OK){
                 asignarEncargado();
                 EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
                 SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
+                stage.menuEmpleadoView();
+            }else{
                 stage.menuEmpleadoView();
             }
         }
@@ -112,7 +113,6 @@ public class FormEmpleadoController implements Initializable {
                 if(conexion != null){
                     conexion.close();
                 }
-                
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
@@ -126,7 +126,7 @@ public class FormEmpleadoController implements Initializable {
             String sql = "CALL sp_AsignarEncargados(?, ?)";
             statement = conexion.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(tfEmpleadoId.getText()));
-            statement.setInt(2,((Empleado)cmbEncargadoId.getSelectionModel().getSelectedItem()).getEmpleadoId());
+            statement.setInt(2, ((Empleado)cmbEncargadoId.getSelectionModel().getSelectedItem()).getEmpleadoId());
             statement.execute();
         }catch(SQLException e){
             System.out.println(e.getMessage());

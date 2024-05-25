@@ -24,7 +24,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.ianalfaro.dao.Conexion;
@@ -65,7 +64,7 @@ public class MenuDetalleComprasController implements Initializable {
     @FXML
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnBack){
-            stage.menuPrincipalView();
+            stage.menuComprasView();
         }else if(event.getSource() == btnGuardar){
             if(tfDetalleCompraId.getText().equals("")){
                 agregarDetalleCompra();
@@ -80,6 +79,7 @@ public class MenuDetalleComprasController implements Initializable {
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
                 vaciarForm();
+                cargarDatos();
             }
         }
     }
@@ -117,7 +117,7 @@ public class MenuDetalleComprasController implements Initializable {
         if(dc != null){
             tfDetalleCompraId.setText(Integer.toString(dc.getDetalleCompraId()));
             tfCantidadCompra.setText(Integer.toString(dc.getCantidadCompra()));
-            cmbProducto.getSelectionModel().select(0);
+            cmbProducto.getSelectionModel().select(obtenerIndexProducto());
             cmbCompra.getSelectionModel().select(obtenerIndexCompra());
         }
     }

@@ -35,9 +35,9 @@
          </children>
       </GridPane>
       <TextArea fx:id="taDescripcionCategoria" layoutX="73.0" layoutY="408.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="352.0" wrapText="true" />
-      <Text fill="WHITE" layoutX="67.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO CATEGORIA PRODUCTO" wrappingWidth="368.98046875">
+      <Text fill="WHITE" layoutX="39.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO CATEGORIA PRODUCTO" wrappingWidth="435.98046875">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
       <Text fill="WHITE" layoutX="73.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIA PRODUCTO ID" wrappingWidth="368.98046875">

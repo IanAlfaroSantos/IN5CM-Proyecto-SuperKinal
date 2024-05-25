@@ -83,6 +83,7 @@ public class MenuPromocionesController implements Initializable {
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
                 vaciarForm();
+                cargarDatos();
             }
         }
     }

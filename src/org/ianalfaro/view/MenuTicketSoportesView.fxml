@@ -31,7 +31,7 @@
             <TableColumn fx:id="colFacturaId" minWidth="0.0" prefWidth="123.0" text="FACTURA" />
         </columns>
       </TableView>
-      <GridPane layoutX="68.0" layoutY="654.0" prefHeight="129.0" prefWidth="324.0">
+      <GridPane layoutX="32.0" layoutY="654.0" prefHeight="129.0" prefWidth="324.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,12 +45,12 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbEstatus" layoutX="68.0" layoutY="581.0" prefHeight="39.0" prefWidth="293.0" />
+      <ComboBox fx:id="cmbEstatus" layoutX="47.0" layoutY="581.0" prefHeight="39.0" prefWidth="293.0" />
       <ComboBox fx:id="cmbCliente" layoutX="401.0" layoutY="144.0" prefHeight="39.0" prefWidth="331.0" />
       <ComboBox fx:id="cmbFacturaId" layoutX="818.0" layoutY="144.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextField fx:id="tfTicketSoporteId" editable="false" layoutX="68.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextArea fx:id="taDescripcionTicket" layoutX="68.0" layoutY="266.0" prefHeight="240.0" prefWidth="293.0" />
-      <Text fill="WHITE" layoutX="68.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET SOPORTE ID" wrappingWidth="344.13671875">
+      <TextField fx:id="tfTicketSoporteId" editable="false" layoutX="47.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextArea fx:id="taDescripcionTicket" layoutX="47.0" layoutY="266.0" prefHeight="240.0" prefWidth="293.0" />
+      <Text fill="WHITE" layoutX="47.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET SOPORTE ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -65,17 +65,17 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="68.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="47.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="68.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESTATUS" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="47.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESTATUS" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="271.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU TICKETS SOPORTES" wrappingWidth="825.13671875">
+      <Text fill="WHITE" layoutX="317.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU TICKETS SOPORTES" wrappingWidth="652.13671875">
          <font>
             <Font name="System Bold" size="51.0" />
          </font>

@@ -35,7 +35,7 @@ public class FormCompraController implements Initializable {
     private static PreparedStatement statement = null;
 
     @FXML
-    TextField tfCompraId, tfFechaCompra, tfTotalCompra;
+    TextField tfCompraId, tfFechaCompra;
     
     @FXML
     Button btnGuardar, btnCancelar;
@@ -44,7 +44,7 @@ public class FormCompraController implements Initializable {
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnGuardar){
             if(op == 1){
-                if(!tfFechaCompra.getText().equals("") && !tfTotalCompra.getText().equals("")){
+                if(!tfFechaCompra.getText().equals("")){
                     agregarCompra();
                     SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
                     stage.menuComprasView();
@@ -52,12 +52,10 @@ public class FormCompraController implements Initializable {
                     SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
                     if(tfFechaCompra.getText().equals("")){
                         tfFechaCompra.requestFocus(); // Para enfocar un textField de forma dinámica
-                    }else if(tfTotalCompra.getText().equals("")){
-                        tfTotalCompra.requestFocus(); // Para enfocar un textField de forma dinámica
                     }
                 }
             }else if(op == 2){
-                if(!tfFechaCompra.getText().equals("") && !tfTotalCompra.getText().equals("")){
+                if(!tfFechaCompra.getText().equals("")){
                     if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505).get() == ButtonType.OK){
                         editarCompra();
                         CompraDTO.getCompraDTO().setCompra(null);
@@ -70,8 +68,6 @@ public class FormCompraController implements Initializable {
                     SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
                     if(tfFechaCompra.getText().equals("")){
                         tfFechaCompra.requestFocus(); // Para enfocar un textField de forma dinámica
-                    }else if(tfTotalCompra.getText().equals("")){
-                        tfTotalCompra.requestFocus(); // Para enfocar un textField de forma dinámica
                     }
                 }
             }
@@ -96,16 +92,14 @@ public class FormCompraController implements Initializable {
         SimpleDateFormat Date = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = Date.format(compra.getFechaCompra());
         tfFechaCompra.setText(fecha);
-        tfTotalCompra.setText(Double.toString(compra.getTotalCompra()));
     }
     
     public void agregarCompra(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
-            String sql = "CALL sp_AgregarCompras(?, ?)";
+            String sql = "CALL sp_AgregarCompras(?)";
             statement = conexion.prepareStatement(sql);
             statement.setString(1, tfFechaCompra.getText());
-            statement.setString(2, tfTotalCompra.getText());
             statement.execute();
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -120,17 +114,15 @@ public class FormCompraController implements Initializable {
                 System.out.println(e.getMessage());
             }
         }
-        op = 1;
     }
     
     public void editarCompra(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
-            String sql = "CALL sp_EditarCompras(?, ?, ?)";
+            String sql = "CALL sp_EditarCompras(?, ?)";
             statement = conexion.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(tfCompraId.getText()));
             statement.setString(2, tfFechaCompra.getText());
-            statement.setString(3, tfTotalCompra.getText());
             statement.execute();
         }catch(SQLException e){
             System.out.println(e.getMessage());

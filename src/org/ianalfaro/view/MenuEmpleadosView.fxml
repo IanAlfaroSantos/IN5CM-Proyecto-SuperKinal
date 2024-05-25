@@ -21,19 +21,19 @@
             <Image url="@../image/FondoMenuEmpleados.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblEmpleados" layoutX="339.0" layoutY="218.0" onMouseClicked="#cargarForm" prefHeight="541.0" prefWidth="808.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
+      <TableView fx:id="tblEmpleados" layoutX="336.0" layoutY="266.0" onMouseClicked="#cargarForm" prefHeight="557.0" prefWidth="836.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colEmpleadoId" minWidth="0.0" text="EMPLEADO ID" />
-            <TableColumn fx:id="colNombreEmpleado" minWidth="0.0" prefWidth="124.0" text="NOMBRE EMPLEADO" />
-            <TableColumn fx:id="colApellidoEmpleado" minWidth="0.0" prefWidth="103.0" text="APELLIDO EMPLEADO" />
-            <TableColumn fx:id="colSueldo" minWidth="0.0" prefWidth="78.0" text="SUELDO" />
-            <TableColumn fx:id="colHoraEntrada" minWidth="0.0" prefWidth="108.0" text="HORA ENTRADA" />
-            <TableColumn fx:id="colHoraSalida" minWidth="0.0" prefWidth="98.0" text="HORA SALIDA" />
-            <TableColumn fx:id="colCargoId" minWidth="0.0" prefWidth="100.0" text="CARGO ID" />
-            <TableColumn fx:id="colEncargadoId" minWidth="0.0" prefWidth="122.0" text="ENCARGADO ID" />
+            <TableColumn fx:id="colNombreEmpleado" minWidth="0.0" prefWidth="125.0" text="NOMBRE EMPLEADO" />
+            <TableColumn fx:id="colApellidoEmpleado" minWidth="0.0" prefWidth="116.0" text="APELLIDO EMPLEADO" />
+            <TableColumn fx:id="colSueldo" minWidth="0.0" prefWidth="76.0" text="SUELDO" />
+            <TableColumn fx:id="colHoraEntrada" minWidth="0.0" prefWidth="107.0" text="HORA ENTRADA" />
+            <TableColumn fx:id="colHoraSalida" minWidth="0.0" prefWidth="108.0" text="HORA SALIDA" />
+            <TableColumn fx:id="colCargoId" minWidth="0.0" prefWidth="105.0" text="CARGO ID" />
+            <TableColumn fx:id="colEncargadoId" minWidth="0.0" prefWidth="118.0" text="ENCARGADO ID" />
         </columns>
       </TableView>
-      <GridPane layoutX="60.0" layoutY="642.0" prefHeight="129.0" prefWidth="264.0">
+      <GridPane layoutX="42.0" layoutY="695.0" prefHeight="129.0" prefWidth="264.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,29 +47,29 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbCargoId" layoutX="399.0" layoutY="144.0" prefHeight="39.0" prefWidth="331.0" />
-      <TextField fx:id="tfEmpleadoId" editable="false" layoutX="60.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="59.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO ID" wrappingWidth="344.13671875">
+      <ComboBox fx:id="cmbCargoId" layoutX="398.0" layoutY="186.0" prefHeight="39.0" prefWidth="331.0" />
+      <TextField fx:id="tfEmpleadoId" editable="false" layoutX="42.0" layoutY="185.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="41.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="399.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARGO ID" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="398.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARGO ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="818.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCARGADO ID" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="817.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCARGADO ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="59.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE EMPLEADO" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="41.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE EMPLEADO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="60.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDO EMPLEADO" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="42.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDO EMPLEADO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -79,26 +79,29 @@
             <Font name="System Bold" size="68.0" />
          </font>
       </Text>
-      <TextField fx:id="tfNombreEmpleado" layoutX="60.0" layoutY="244.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfApellidoEmpleado" layoutX="60.0" layoutY="336.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="60.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUELDO" wrappingWidth="344.13671875">
+      <TextField fx:id="tfNombreEmpleado" layoutX="42.0" layoutY="285.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfApellidoEmpleado" layoutX="42.0" layoutY="377.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="42.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUELDO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfSueldo" layoutX="60.0" layoutY="425.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="61.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA ENTRADA" wrappingWidth="344.13671875">
+      <TextField fx:id="tfSueldo" layoutX="42.0" layoutY="466.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="43.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA ENTRADA" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfHoraEntrada" layoutX="60.0" layoutY="513.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfHoraSalida" layoutX="60.0" layoutY="603.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="60.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA SALIDA" wrappingWidth="344.13671875">
+      <TextField fx:id="tfHoraEntrada" layoutX="42.0" layoutY="554.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfHoraSalida" layoutX="42.0" layoutY="644.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="42.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA SALIDA" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btnAsignarEncargado" layoutX="818.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="ASIGNAR ENCARGADO" />
+      <Button fx:id="btnAsignarEncargado" layoutX="817.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="ASIGNAR ENCARGADO">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

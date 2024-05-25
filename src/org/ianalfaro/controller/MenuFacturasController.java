@@ -51,7 +51,7 @@ public class MenuFacturasController implements Initializable {
     TableColumn colFacturaId, colFecha, colHora, colCliente, colEmpleado, colTotal;
     
     @FXML
-    Button btnBack, btnVaciar, btnGuardar;
+    Button btnBack, btnVaciar, btnGuardar, btnAgregarDetalleFactura;
     
     @FXML
     TextField tfFacturaId, tfFecha, tfHora, tfTotal;
@@ -77,7 +77,10 @@ public class MenuFacturasController implements Initializable {
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
                 vaciarForm();
+                cargarDatos();
             }
+        }else if(event.getSource() == btnAgregarDetalleFactura){
+            stage.menuDetalleFacturaView();
         }
     }
     
@@ -104,11 +107,8 @@ public class MenuFacturasController implements Initializable {
 
     public void vaciarForm(){
         tfFacturaId.clear();
-        tfFecha.clear();
-        tfHora.clear();
         cmbCliente.getSelectionModel().clearSelection();
         cmbEmpleado.getSelectionModel().clearSelection();
-        tfTotal.clear();
     }
     
     @FXML
@@ -117,11 +117,8 @@ public class MenuFacturasController implements Initializable {
         
         if(fc != null){
             tfFacturaId.setText(Integer.toString(fc.getFacturaId()));
-            tfFecha.setText(fc.getFecha());
-            tfHora.setText(fc.getHora());
             cmbCliente.getSelectionModel().select(obtenerIndexCliente());
             cmbEmpleado.getSelectionModel().select(obtenerIndexEmpleado());
-            tfTotal.setText(Double.toString(fc.getTotal()));
         }
     }
     

@@ -23,7 +23,6 @@ public class Compra {
     public Compra(int compraId, Date fechaCompra, double totalCompra) {
         this.compraId = compraId;
         this.fechaCompra = fechaCompra;
-        this.totalCompra = totalCompra;
     }
 
     public int getCompraId() {
@@ -52,6 +51,6 @@ public class Compra {
 
     @Override
     public String toString() {
-        return "Id: " + compraId + " | " + fechaCompra;
+        return "Id: " + compraId + " | " + fechaCompra + " " + totalCompra;
     }
 }

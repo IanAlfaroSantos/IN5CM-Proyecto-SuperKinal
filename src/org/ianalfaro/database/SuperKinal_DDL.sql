@@ -35,7 +35,7 @@ CREATE TABLE Empleados(
     PRIMARY KEY PK_empleadoId(empleadoId),
     CONSTRAINT FK_Empleados_Cargos FOREIGN KEY Empleados(cargoId)
         REFERENCES Cargos(cargoId),
-    CONSTRAINT FK_encargadoId_Empleados FOREIGN KEY Empleados(encargadoId)
+    CONSTRAINT FK_encargadoId_Empleados FOREIGN KEY (encargadoId)
         REFERENCES Empleados(empleadoId)
 );
 
@@ -91,7 +91,7 @@ CREATE TABLE Productos(
     precioVentaUnitario DECIMAL(10,2) NOT NULL,
     precioVentaMayor DECIMAL(10,2) NOT NULL,
     precioCompra DECIMAL(10,2) NOT NULL,
-    imagenProducto BLOB,
+    imagenProducto LONGBLOB,
     distribuidorId INT NOT NULL,
     categoriaProductoId INT NOT NULL,
     PRIMARY KEY PK_productoId(productoId),

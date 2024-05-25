@@ -98,6 +98,6 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Id: " + facturaId + " | " + cliente;
+        return "Id: " + facturaId + " | " + fecha + " " + total;
     }
 }

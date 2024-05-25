@@ -1,21 +1,20 @@
 USE SuperKinal;
 
 DELIMITER $$
-
-CREATE FUNCTION fn_CalcularPromociones(proId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
+CREATE FUNCTION fn_CalcularPromocion(proId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
 BEGIN
     DECLARE resultado INT DEFAULT 0;
     DECLARE i INT DEFAULT 1;
-    DECLARE fecFin DATE;
+    DECLARE feFi DATE;
 
     SET resultado = 0; 
-
+    
     resultadoLoop: LOOP
-        SELECT fechaFinalizacion INTO fecFin FROM Promociones
-            WHERE promocionId = i AND productoId = proId;
+        SELECT fechaFinalizacion INTO feFi FROM Promociones
+        WHERE promocionId = i AND productoId = proId;
 
-        IF fecFin IS NOT NULL THEN
-            IF fecFin > DATE(NOW()) THEN
+        IF feFi IS NOT NULL THEN
+            IF feFi > DATE(NOW()) THEN
                 SET resultado = 1; 
             END IF;
         END IF;
@@ -29,27 +28,27 @@ BEGIN
 
     RETURN resultado;
 END$$
-
 DELIMITER ;
 
 DELIMITER $$
-
-CREATE FUNCTION fn_CalcularTotalFacturas(facId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
+CREATE FUNCTION fn_totalFactura(facId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
 BEGIN
     DECLARE total DECIMAL(10,2) DEFAULT 0.0;
     DECLARE i INT DEFAULT 1;
     DECLARE precio DECIMAL(10,2);
+    DECLARE curCantidadCompra INT;
+    DECLARE curProductoId INT;
 
     totalLoop: LOOP
-        IF fn_CalcularPromociones(facId) = 0 THEN
+        IF fn_CalcularPromocion(facId) = 0 THEN
             IF facId = (SELECT facturaId FROM DetalleFacturas DF WHERE detalleFacturaId = i) THEN
                 SET precio = (SELECT PD.precioVentaUnitario FROM Productos PD WHERE productoId = (SELECT productoId FROM DetalleFacturas WHERE detalleFacturaId = i));
-                SET total = total + precio + (precio * 0.12);
+                SET total = total + precio + (precio*0.12);
             END IF;
         ELSE 
-            IF facId = (SELECT facturaId FROM DetalleFactura DF WHERE detalleFacturaId = i) THEN
-                SET precio = (SELECT PM.precioPromocion FROM Promociones PM WHERE productoId = (SELECT productoId FROM DetalleFacturas WHERE detalleFacturaId = i));
-                SET total = total + precio + (precio * 0.12);
+            IF facId = (SELECT facturaId FROM DetalleFacturas DF WHERE detalleFacturaId = i) THEN
+                SET precio = (SELECT PR.precioPromocion FROM Promociones PR WHERE productoId = (SELECT productoId FROM DetalleFacturas WHERE detalleFacturaId = i));
+                SET total = total + precio + (precio*0.12);
             END IF;
         END IF;
 
@@ -60,71 +59,48 @@ BEGIN
         SET i = i + 1;
     END LOOP totalLoop;
 
-    CALL sp_AsignarTotalFacturas(facId, tot);
+    CALL sp_asignarTotalFactura(facId, total);
 
     RETURN total;
 END $$
-
 DELIMITER ;
 
 DELIMITER $$
-
-CREATE FUNCTION fn_DesaumentarStocks(proId INT) RETURNS INT DETERMINISTIC
-BEGIN
-    DECLARE cantSto INT DEFAULT 0;
-    DECLARE cantidadComprada INT DEFAULT 0;
-
-    SELECT cantidadStock INTO cantidadComprada FROM Productos WHERE productoId = proId;
-    
-    SET cantSto = cantidadComprada - 1;
-    
-    CALL sp_EliminarStocks(proId, cantSto);
-    
-    RETURN cantSto;
-END $$
-
-DELIMITER ;
-
-DELIMITER $$
-
-CREATE TRIGGER tg_TotalFacturas
+CREATE TRIGGER tg_totalFactura
 AFTER INSERT ON DetalleFacturas
 FOR EACH ROW
 BEGIN
     DECLARE tot DECIMAL(10,2);
-    DECLARE cantSto INT;
+    DECLARE canCom INT;
     
-    SET tot = fn_CalcularTotalFacturas(NEW.facturaId);
-    SET cantSto = fn_DesaunmentarStocks(NEW.productoId); 
+    SET tot = fn_totalFactura(new.facturaId);
+    SET canCom = fn_eliminarStockProducto(new.productoId); 
 END$$
-
 DELIMITER ;
 
 DELIMITER $$
-
-CREATE FUNCTION fn_CalcularTotalCompra(comId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
+CREATE FUNCTION fn_PrecioTotalCompras(comId INT) RETURNS DECIMAL(10,2) DETERMINISTIC
 BEGIN
-    DECLARE totalCom DECIMAL(10,2) DEFAULT 0.0;
+    DECLARE totCom DECIMAL(10,2) DEFAULT 0.0;
     DECLARE i INT DEFAULT 1;
     DECLARE precio DECIMAL(10,2);
     DECLARE cantidadComprada INT DEFAULT 0;
-    DECLARE cantCompra INT;
-    DECLARE cursorProductoId INT; 
-    DECLARE cursorCompraId INT;
+    DECLARE curCantidadCompra INT; 
+    DECLARE curProductoId INT; 
+    DECLARE curCompraId INT;
     
-    DECLARE cursorDetalleCompras CURSOR FOR
-        SELECT DC.cantidadCompra, DC.productoId, DC.compraId FROM DetalleCompras DC
-    ;
-    
-    OPEN cursorDetalleCompras;
+    DECLARE curDetalleCompra CURSOR FOR
+        SELECT DC.cantidadCompra, DC.productoId, DC.compraId FROM DetalleCompras DC;
+
+    OPEN curDetalleCompra;
     
     totalLoop: LOOP
-        FETCH cursorDetalleCompras INTO cantCompra, cursorProductoId, cursorCompraId;
+        FETCH curDetalleCompra INTO curCantidadCompra, curProductoId, curCompraId;
         
-        IF comId = cursorCompraId THEN
-            SET precio = (SELECT P.precioCompra FROM Productos P WHERE P.productoId = cursorProductoId);
-            SET cantidadComprada = cantCompra;
-            SET totalCom = totalCom + (precio * cantidadComprada + (cantidadComprada * precio * 0.12));
+        IF comId = curCompraId THEN
+            SET precio = (SELECT PD.precioCompra FROM Productos PD WHERE PD.productoId = curProductoId);
+            SET cantidadComprada = curCantidadCompra;
+            SET totCom = totCom + (precio * cantidadComprada + (cantidadComprada * precio * 0.12));
         END IF;
         
         IF i = (SELECT COUNT(*) FROM DetalleCompras) THEN
@@ -134,44 +110,59 @@ BEGIN
         SET i = i + 1;
     END LOOP totalLoop;
     
-    CALL sp_AsignarTotalCompras(comId, totalCom);
+    CALL sp_asignarTotalCompra(comId, totCom);
     
-    RETURN totalCom;
+    RETURN totCom;
 END $$
-
 DELIMITER ;
 
-DELIMITER $$
 
-CREATE FUNCTION fn_AumentarStocks(proId INT) RETURNS INT DETERMINISTIC
+DELIMITER $$
+CREATE FUNCTION fn_IncrementarStockProducto(proId INT) RETURNS INT DETERMINISTIC
 BEGIN
-    DECLARE cantSto INT DEFAULT 0;
+    DECLARE canCom INT DEFAULT 0;
     DECLARE cantidadComprada INT DEFAULT 0;
     DECLARE cantidad INT DEFAULT 0;
     
     SELECT cantidadStock INTO cantidad FROM Productos WHERE productoId = proId LIMIT 1;
     SELECT cantidadCompra INTO cantidadComprada FROM DetalleCompras WHERE productoId = proId LIMIT 1;
     
-	SET cantSto = cantSto + cantidadComprada + cantidad;
-
-	CALL sp_AgregarStocks(proId, cantSto);
-
-	RETURN cantSto;
+    SET canCom = canCom + cantidadComprada + cantidad;
+    
+    CALL sp_modificarStockCompra(proId, canCom);
+    
+    RETURN canCom;
 END $$
-
 DELIMITER ;
 
 DELIMITER $$
-CREATE TRIGGER tg_TotalCompras
+CREATE FUNCTION fn_eliminarStockProducto(proId INT) RETURNS INT DETERMINISTIC
+BEGIN
+    DECLARE canCom INT DEFAULT 0;
+    DECLARE cantidadComprada INT DEFAULT 0;
+
+    SELECT cantidadStock INTO cantidadComprada FROM Productos WHERE productoId = proId;
+    
+    SET canCom = cantidadComprada - 1;
+    
+    CALL sp_modificarStock(proId, canCom);
+    
+    RETURN canCom;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER tg_totalCompras
 AFTER INSERT ON DetalleCompras
 FOR EACH ROW
 BEGIN
     DECLARE totCom DECIMAL(10,2);
-    DECLARE cantSto INT;
+    DECLARE canCom INT;
     
-    SET totCom = fn_CalcularTotalCompra(new.compraId);
-    SET cantSto = fn_AumentarStocks(new.productoId); 
-END $$
+    SET totCom = fn_PrecioTotalCompras(new.compraId);
+    SET canCom = fn_IncrementarStockProducto(new.productoId); 
+END$$
 DELIMITER ;
 
 

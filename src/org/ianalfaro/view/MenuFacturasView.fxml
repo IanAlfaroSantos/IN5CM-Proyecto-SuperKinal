@@ -21,7 +21,7 @@
             <Image url="@../image/FondoMenuFacturas.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblFacturas" layoutX="378.0" layoutY="242.0" onMouseClicked="#cargarForm" prefHeight="541.0" prefWidth="757.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
+      <TableView fx:id="tblFacturas" layoutX="378.0" layoutY="169.0" onMouseClicked="#cargarForm" prefHeight="614.0" prefWidth="757.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colFacturaId" minWidth="0.0" prefWidth="76.0" text="FACTURA ID" />
             <TableColumn fx:id="colFecha" minWidth="0.0" prefWidth="142.0" text="FECHA" />
@@ -31,7 +31,7 @@
             <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="108.0" text="TOTAL" />
         </columns>
       </TableView>
-      <GridPane layoutX="54.0" layoutY="608.0" prefHeight="129.0" prefWidth="324.0">
+      <GridPane layoutX="35.0" layoutY="677.0" prefHeight="129.0" prefWidth="324.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,46 +45,33 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbCliente" layoutX="401.0" layoutY="144.0" prefHeight="39.0" prefWidth="331.0" />
-      <ComboBox fx:id="cmbEmpleado" layoutX="818.0" layoutY="144.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextField fx:id="tfFacturaId" editable="false" layoutX="68.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="68.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTURA ID" wrappingWidth="344.13671875">
+      <ComboBox fx:id="cmbCliente" layoutX="51.0" layoutY="338.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfFacturaId" editable="false" layoutX="53.0" layoutY="216.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="53.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTURA ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="405.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLIENTE" wrappingWidth="344.13671875">
+      <Text fill="WHITE" layoutX="53.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLIENTE" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="818.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO" wrappingWidth="344.13671875">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="68.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA" wrappingWidth="344.13671875">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="68.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL" wrappingWidth="344.13671875">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="271.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU FACTURAS" wrappingWidth="825.13671875">
+      <Text fill="WHITE" layoutX="383.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU FACTURAS" wrappingWidth="440.13671875">
          <font>
             <Font name="System Bold" size="51.0" />
          </font>
       </Text>
-      <TextField fx:id="tfFecha" editable="false" layoutX="68.0" layoutY="260.0" prefHeight="39.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="68.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA" wrappingWidth="344.13671875">
+      <ComboBox fx:id="cmbEmpleado" layoutX="51.0" layoutY="467.0" prefHeight="39.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfHora" editable="false" layoutX="68.0" layoutY="380.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfTotal" editable="false" layoutX="68.0" layoutY="493.0" prefHeight="39.0" prefWidth="264.0" />
+      <Button fx:id="btnAgregarDetalleFactura" layoutX="53.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="264.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 50,0,0,0);" text="AGREGAR DETALLE FACTURA">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

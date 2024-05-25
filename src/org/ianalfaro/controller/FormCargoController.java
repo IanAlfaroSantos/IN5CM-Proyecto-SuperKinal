@@ -121,7 +121,6 @@ public class FormCargoController implements Initializable {
                 System.out.println(e.getMessage());
             }
         }
-        op = 1;
     }
     
     public void editarCargo(){

@@ -32,6 +32,6 @@
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="CANCELAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <TextArea fx:id="taDescripcionCargo" layoutX="35.0" layoutY="408.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="390.0" wrapText="true" />
+      <TextArea fx:id="taDescripcionCargo" layoutX="35.0" layoutY="408.0" prefHeight="150.0" prefWidth="390.0" wrapText="true" />
    </children>
 </AnchorPane>

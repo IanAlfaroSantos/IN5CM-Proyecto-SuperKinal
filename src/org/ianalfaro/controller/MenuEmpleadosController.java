@@ -66,7 +66,7 @@ public class MenuEmpleadosController implements Initializable {
         }else if(event.getSource() == btnGuardar){
             if(tfEmpleadoId.getText().equals("")){
                 agregarEmpleado();
-                 SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
+                SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
                 cargarDatos();
             }else{
                 editarEmpleado();
@@ -77,6 +77,7 @@ public class MenuEmpleadosController implements Initializable {
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
                 vaciarForm();
+                cargarDatos();
             }
         }else if(event.getSource() == btnAsignarEncargado){
             EmpleadoDTO.getEmpleadoDTO().setEmpleado((Empleado)tblEmpleados.getSelectionModel().getSelectedItem());
@@ -134,7 +135,7 @@ public class MenuEmpleadosController implements Initializable {
     public int obtenerIndexCargo(){
         int index = 0;
         String cargoTbl = ((Empleado)tblEmpleados.getSelectionModel().getSelectedItem()).getCargo();
-        for(int i = 0; i < cmbCargoId.getItems().size(); i++){
+        for(int i = 0; i <= cmbCargoId.getItems().size(); i++){
             String cargoCmb = cmbCargoId.getItems().get(i).toString();
         
             if(cargoTbl.equals(cargoCmb)){
@@ -289,4 +290,3 @@ public class MenuEmpleadosController implements Initializable {
         return stage;
     }
 }
-

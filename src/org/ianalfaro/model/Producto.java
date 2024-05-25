@@ -42,6 +42,12 @@ public class Producto {
         this.categoriaProducto = categoriaProducto;
     }
 
+    public Producto(int productoId, String nombreProducto, Blob imagenProducto) {
+        this.productoId = productoId;
+        this.nombreProducto = nombreProducto;
+        this.imagenProducto = imagenProducto;
+    }
+    
     public int getProductoId() {
         return productoId;
     }

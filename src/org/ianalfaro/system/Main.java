@@ -25,6 +25,7 @@ import org.ianalfaro.controller.MenuCategoriaProductosController;
 import org.ianalfaro.controller.MenuClientesController;
 import org.ianalfaro.controller.MenuComprasController;
 import org.ianalfaro.controller.MenuDetalleComprasController;
+import org.ianalfaro.controller.MenuDetalleFacturasController;
 import org.ianalfaro.controller.MenuPrincipalController;
 import org.ianalfaro.controller.MenuTicketSoportesController;
 import org.ianalfaro.controller.MenuDistribuidoresController;
@@ -178,6 +179,15 @@ public class Main extends Application {
         }
     }
     
+    public void menuDetalleFacturaView(){
+         try{
+            MenuDetalleFacturasController menuDetalleFacturaView = (MenuDetalleFacturasController)switchScene("MenuDetalleFacturasView.fxml", 1200, 850);
+            menuDetalleFacturaView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     public void formClienteView(int op){
          try{
             FormClienteController formClienteView = (FormClienteController)switchScene("FormClienteView.fxml", 500, 750);
@@ -228,7 +238,7 @@ public class Main extends Application {
         }
     }
     
-    public void formProductoView(int op){
+    public void formProductoView(){
          try{
             FormProductoController formProductoView = (FormProductoController)switchScene("FormProductoView.fxml", 1200, 850);
             formProductoView.setStage(this);

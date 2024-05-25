@@ -160,7 +160,7 @@ CREATE PROCEDURE sp_ListarEmpleados()
         CONCAT(EC.nombreEmpleado, ' ', EC.apellidoEmpleado) AS 'encargado'
         FROM Empleados E
         JOIN Cargos CA ON E.cargoId = CA.cargoId
-        LEFT JOIN Empleados EC ON E.encargadoId = EC.encargadoId;
+        LEFT JOIN Empleados EC ON E.encargadoId = EC.empleadoId;
     END$$
 
 DELIMITER ;
@@ -220,7 +220,7 @@ CREATE PROCEDURE sp_AsignarEncargados(IN empId INT, IN encId INT)
 		BEGIN
 			UPDATE Empleados
 				SET
-					encargadoId = encId
+					Empleados.encargadoId = encId
 						WHERE empleadoId = empId;
 		
         END$$
@@ -316,7 +316,7 @@ CREATE PROCEDURE sp_ListarTicketSoportes()
     BEGIN
         SELECT TS.ticketSoporteId, TS.descripcionTicket, TS.estatus,
         CONCAT("Id: ", C.clienteId, " | ", C.nombre, " ", C.apellido) AS 'cliente', 
-        CONCAT("Id: ", FC.facturaId, " | ", FC.empleadoId, " ", FC.fecha) AS 'factura' FROM TicketSoportes TS
+        CONCAT("Id: ", FC.facturaId, " | ", FC.fecha) AS 'factura' FROM TicketSoportes TS
         JOIN Facturas FC ON TS.facturaId = FC.facturaId
         JOIN Clientes C ON TS.clienteId = C.clienteId;
     END$$
@@ -510,10 +510,10 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_AgregarProductos(IN nomPro VARCHAR(50), IN desPro VARCHAR(100), IN canSto INT, IN preVenUni DECIMAL(10,2), IN preVenMay DECIMAL(10,2), IN preCom DECIMAL(10,2), IN imaPro LONGBLOB, IN disId INT, IN catProId INT)
+CREATE PROCEDURE sp_AgregarProductos(IN nomPro VARCHAR(50), IN desPro VARCHAR(100), IN canSto INT, IN preVenUni DECIMAL(10,2), IN preVenMay DECIMAL(10,2), IN preCom DECIMAL(10,2), IN disId INT, IN catProId INT)
     BEGIN
-        INSERT INTO Productos (nombreProducto, descripcionProducto, cantidadStock, precioVentaUnitario, precioVentaMayor, precioCompra, imagenProducto, distribuidorId, categoriaProductoId)
-            VALUES (nomPro, desPro, canSto, preVenUni, preVenMay, preCom, imaPro, disId, catProId);
+        INSERT INTO Productos (nombreProducto, descripcionProducto, cantidadStock, precioVentaUnitario, precioVentaMayor, precioCompra, distribuidorId, categoriaProductoId)
+            VALUES (nomPro, desPro, canSto, preVenUni, preVenMay, preCom, disId, catProId);
      END$$
 
 DELIMITER ;
@@ -539,14 +539,7 @@ CREATE PROCEDURE sp_BuscarProductos(IN proId INT)
 		SELECT
             Productos.productoId,
             Productos.nombreProducto,
-            Productos.descripcionProducto,
-            Productos.cantidadStock,
-            Productos.precioVentaUnitario,
-            Productos.precioVentaMayor,
-            Productos.precioCompra,
-            Productos.imagenProducto,
-            Productos.distribuidorId,
-            Productos.categoriaProductoId
+            Productos.imagenProducto
 				FROM Productos
 					WHERE productoId = proId;
 
@@ -568,7 +561,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_EditarProductos(IN proId INT, IN nomPro VARCHAR(50), IN desPro VARCHAR(100), IN canSto INT, IN preVenUni DECIMAL(10,2), IN preVenMay DECIMAL(10,2), IN preCom DECIMAL(10,2), IN imaPro LONGBLOB,IN disId INT, IN catProId INT)
+CREATE PROCEDURE sp_EditarProductos(IN proId INT, IN nomPro VARCHAR(50), IN desPro VARCHAR(100), IN canSto INT, IN preVenUni DECIMAL(10,2), IN preVenMay DECIMAL(10,2), IN preCom DECIMAL(10,2), IN disId INT, IN catProId INT)
 	BEGIN
 		UPDATE Productos
 			SET
@@ -578,10 +571,20 @@ CREATE PROCEDURE sp_EditarProductos(IN proId INT, IN nomPro VARCHAR(50), IN desP
 				precioVentaUnitario = preVenUni,
 				precioVentaMayor = preVenMay,
                 precioCompra = preCom,
-                imagenProducto = imaPro,
                 distribuidorId = disId,
                 categoriaProductoId = catProId
 					WHERE productoId = proId;
+	END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_EditarImagen(IN imaPro LONGBLOB)
+	BEGIN
+		UPDATE Productos
+			SET
+				imagenProducto = imaPro;
 	END$$
 
 DELIMITER ;
@@ -603,13 +606,14 @@ DELIMITER $$
 CREATE PROCEDURE sp_ListarPromociones()
     BEGIN
         SELECT
-			Promociones.promocionId,
-            Promociones.precioPromocion,
-            Promociones.descripcionPromocion,
-            Promociones.fechaInicio,
-            Promociones.fechaFinalizacion,
-            Promociones.productoId
-                FROM Promociones;
+			PR.promocionId,
+            PR.precioPromocion,
+            PR.descripcionPromocion,
+            PR.fechaInicio,
+            PR.fechaFinalizacion,
+            CONCAT("Id: ", PD.productoId," | ", PD.nombreProducto) AS 'productoId'
+                FROM Promociones PR
+					JOIN Productos PD ON PR.productoId = PD.productoId;
     END$$
 
 DELIMITER ;
@@ -678,8 +682,8 @@ CREATE PROCEDURE sp_ListarDetalleFacturas()
     BEGIN
         SELECT
 			DetalleFacturas.detalleFacturaId,
-            DetalleFacturas.facId,
-            DetalleFacturas.proId
+            DetalleFacturas.facturaId,
+            DetalleFacturas.productoId
                 FROM DetalleFacturas;
     END$$
 
@@ -691,8 +695,8 @@ CREATE PROCEDURE sp_BuscarDetalleFacturas(IN detFacId INT)
 	BEGIN
 		SELECT
             DetalleFacturas.detalleFacturaId,
-            DetalleFacturas.facId,
-            DetalleFacturas.proId
+            DetalleFacturas.facturaId,
+            DetalleFacturas.productoId
 				FROM DetalleFacturas
 					WHERE detalleFacturaId = detFacId;
 
@@ -729,10 +733,10 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_AgregarCompras(IN fecCom DATE, IN totCom DECIMAL(10,2))
+CREATE PROCEDURE sp_AgregarCompras(IN fecCom DATE)
     BEGIN        
-        INSERT INTO Compras (fechaCompra, totalCompra)
-            VALUES (fecCom, totCom);
+        INSERT INTO Compras (fechaCompra)
+            VALUES (fecCom);
      END$$
 
 DELIMITER ;
@@ -779,12 +783,11 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_EditarCompras(IN comId INT, IN fecCom DATE, IN totCom DECIMAL(10,2))
+CREATE PROCEDURE sp_EditarCompras(IN comId INT, IN fecCom DATE)
 	BEGIN
 		UPDATE Compras
 			SET
-				fechaCompra = fecCom,
-				totalCompra = totCom
+				fechaCompra = fecCom
 					WHERE compraId = comId;
 	END$$
 
@@ -815,6 +818,8 @@ CREATE PROCEDURE sp_ListarDetalleCompras()
     END$$
 
 DELIMITER ;
+
+SELECT * FROM Facturas;
  
 DELIMITER $$
  
@@ -858,54 +863,41 @@ CREATE PROCEDURE sp_EditarDetalleCompras(IN detComId INT, IN canCom INT, IN proI
 
 DELIMITER ;
 
--- ********************************** PROCEDIMIENTOS PARA FUNCIONES ********************************** --
-
 DELIMITER $$
-
-CREATE PROCEDURE sp_AsignarTotalFacturas(IN facId INT, IN tot DECIMAL(10,2))
-	BEGIN
-		UPDATE Facturas
-			SET 
-				total = tot
-					WHERE facturaId = facId;
-	END $$
-
-DELIMITER ;
-
-DELIMITER $$
-
-CREATE PROCEDURE sp_EliminarStocks(IN proId INT, IN cantSto INT)
-	BEGIN
-		UPDATE Productos
-			SET 
-				cantidadStock = cantSto
-					WHERE productoId = detFacId;
-	END $$
-
-DELIMITER ;
-
-DELIMITER $$
-
-CREATE PROCEDURE sp_AsignarTotalCompras(IN comId INT, IN totCom DECIMAL(10,2))
-	BEGIN
-		UPDATE Compras
-			SET 
-				totalCompra = totCom
-					WHERE compraId = comId; 
-	END $$
-
-DELIMITER ;
-
-DELIMITER $$
-
-CREATE PROCEDURE sp_AgregarStocks(IN proId INT, IN cantSto INT)
-	BEGIN
-		UPDATE Productos
-			SET 
-				cantidadStock = cantSto
-					WHERE productoId = proId;
+CREATE PROCEDURE sp_asignarTotalFactura(IN facId INT, IN tot DECIMAL(10,2))
+BEGIN
+	UPDATE Facturas
+		SET total = tot
+		WHERE facturaId = facId; 
 END $$
-
 DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE sp_modificarStock(IN detFacId INT, IN canSto INT)
+BEGIN
+	UPDATE Productos
+		SET cantidadStock = canSto
+		WHERE productoId = detFacId;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE sp_asignarTotalCompra(IN comId INT, IN totCom DECIMAL(10,2))
+BEGIN
+	UPDATE Compras
+		SET totalCompra = totCom
+		WHERE compraId = comId; 
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE sp_modificarStockCompra(IN proId INT, IN canSto INT)
+BEGIN
+	UPDATE Productos
+		SET cantidadStock = canSto
+		WHERE productoId = proId;
+END $$
+DELIMITER ;
+
 
 set global time_zone = '-6:00';

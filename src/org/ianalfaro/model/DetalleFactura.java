@@ -12,16 +12,18 @@ package org.ianalfaro.model;
 public class DetalleFactura {
     private int detalleFacturaId;
     private int facturaId;
+    private String factura;
     private int productoId;
+    private String producto;
     
     public DetalleFactura(){
     
     }
 
-    public DetalleFactura(int detalleFacturaId, int facturaId, int productoId) {
+    public DetalleFactura(int detalleFacturaId, String factura, String producto) {
         this.detalleFacturaId = detalleFacturaId;
-        this.facturaId = facturaId;
-        this.productoId = productoId;
+        this.factura = factura;
+        this.producto = producto;
     }
 
     public int getDetalleFacturaId() {
@@ -32,10 +34,18 @@ public class DetalleFactura {
         return facturaId;
     }
 
+    public String getFactura() {
+        return factura;
+    }
+    
     public int getProductoId() {
         return productoId;
     }
 
+    public String getProducto() {
+        return producto;
+    }
+    
     public void setDetalleFacturaId(int detalleFacturaId) {
         this.detalleFacturaId = detalleFacturaId;
     }
@@ -44,12 +54,20 @@ public class DetalleFactura {
         this.facturaId = facturaId;
     }
 
+    public void setFactura(String factura) {
+        this.factura = factura;
+    }
+    
     public void setProductoId(int productoId) {
         this.productoId = productoId;
     }
 
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
     @Override
     public String toString() {
-        return "DetalleFacturas{" + "detalleFacturaId=" + detalleFacturaId + ", facturaId=" + facturaId + ", productoId=" + productoId + '}';
+        return "Id: " + detalleFacturaId + " | " + factura + " " + producto;
     }
 }
