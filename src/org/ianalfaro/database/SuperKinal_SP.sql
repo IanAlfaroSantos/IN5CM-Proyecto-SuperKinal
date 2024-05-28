@@ -733,10 +733,10 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_AgregarCompras(IN fecCom DATE)
+CREATE PROCEDURE sp_AgregarCompras()
     BEGIN        
         INSERT INTO Compras (fechaCompra)
-            VALUES (fecCom);
+            VALUES (CURDATE());
      END$$
 
 DELIMITER ;
@@ -783,11 +783,11 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_EditarCompras(IN comId INT, IN fecCom DATE)
+CREATE PROCEDURE sp_EditarCompras(IN comId INT)
 	BEGIN
 		UPDATE Compras
 			SET
-				fechaCompra = fecCom
+				fechaCompra = CURDATE()
 					WHERE compraId = comId;
 	END$$
 
@@ -818,8 +818,6 @@ CREATE PROCEDURE sp_ListarDetalleCompras()
     END$$
 
 DELIMITER ;
-
-SELECT * FROM Facturas;
  
 DELIMITER $$
  
@@ -832,7 +830,6 @@ CREATE PROCEDURE sp_BuscarDetalleCompras(IN detComId INT)
             DetalleCompras.compraId
 				FROM DetalleCompras
 					WHERE detalleCompraId = detComId;
-
 	END$$
 
 DELIMITER ;
@@ -844,7 +841,6 @@ CREATE PROCEDURE sp_EliminarDetalleCompras(IN detComId INT)
 	BEGIN
 		DELETE FROM DetalleCompras
 			WHERE detalleCompraId = detComId;
-
 	END$$
 
 DELIMITER ;
@@ -864,40 +860,75 @@ CREATE PROCEDURE sp_EditarDetalleCompras(IN detComId INT, IN canCom INT, IN proI
 DELIMITER ;
 
 DELIMITER $$
+
 CREATE PROCEDURE sp_asignarTotalFactura(IN facId INT, IN tot DECIMAL(10,2))
-BEGIN
-	UPDATE Facturas
-		SET total = tot
-		WHERE facturaId = facId; 
-END $$
+	BEGIN
+		UPDATE Facturas
+			SET total = tot
+			WHERE facturaId = facId; 
+	END$$
+
 DELIMITER ;
 
 DELIMITER $$
+
 CREATE PROCEDURE sp_modificarStock(IN detFacId INT, IN canSto INT)
-BEGIN
-	UPDATE Productos
-		SET cantidadStock = canSto
-		WHERE productoId = detFacId;
-END $$
+	BEGIN
+		UPDATE Productos
+			SET cantidadStock = canSto
+			WHERE productoId = detFacId;
+	END$$
+    
 DELIMITER ;
 
 DELIMITER $$
+
 CREATE PROCEDURE sp_asignarTotalCompra(IN comId INT, IN totCom DECIMAL(10,2))
-BEGIN
-	UPDATE Compras
-		SET totalCompra = totCom
-		WHERE compraId = comId; 
-END $$
+	BEGIN
+		UPDATE Compras
+			SET totalCompra = totCom
+			WHERE compraId = comId; 
+	END$$
+    
 DELIMITER ;
 
 DELIMITER $$
+
 CREATE PROCEDURE sp_modificarStockCompra(IN proId INT, IN canSto INT)
-BEGIN
-	UPDATE Productos
-		SET cantidadStock = canSto
-		WHERE productoId = proId;
-END $$
+	BEGIN
+		UPDATE Productos
+			SET cantidadStock = canSto
+			WHERE productoId = proId;
+	END$$
+    
 DELIMITER ;
 
+-- ********************************** USUARIOS ********************************** --
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_AgregarUsuarios(IN usu VARCHAR(30), IN con VARCHAR(30), IN nivAccId INT, IN empId INT)
+	BEGIN
+		INSERT INTO Usuarios (usuario, contrasenia, nivelAccesoId, empleadoId)
+			VALUES (usu, con, nivAccId, empId);
+	END$$
+    
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_BuscarUsuarios(IN usuId INT)
+	BEGIN
+		SELECT
+			Usuarios.usuarioId,
+			Usuarios.usuario,
+            Usuarios.contrasenia,
+            Usuarios.nivelAccesoId,
+            Usuarios.empleadoId
+				FROM Usuarios
+					WHERE usuarioId = usuId;
+	END$$
+    
+DELIMITER ;
 
 set global time_zone = '-6:00';

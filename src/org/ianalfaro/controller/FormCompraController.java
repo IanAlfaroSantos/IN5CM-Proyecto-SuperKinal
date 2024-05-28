@@ -35,7 +35,7 @@ public class FormCompraController implements Initializable {
     private static PreparedStatement statement = null;
 
     @FXML
-    TextField tfCompraId, tfFechaCompra;
+    TextField tfCompraId;
     
     @FXML
     Button btnGuardar, btnCancelar;
@@ -44,32 +44,14 @@ public class FormCompraController implements Initializable {
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnGuardar){
             if(op == 1){
-                if(!tfFechaCompra.getText().equals("")){
                     agregarCompra();
                     SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
                     stage.menuComprasView();
-                }else{
-                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
-                    if(tfFechaCompra.getText().equals("")){
-                        tfFechaCompra.requestFocus(); // Para enfocar un textField de forma dinámica
-                    }
-                }
             }else if(op == 2){
-                if(!tfFechaCompra.getText().equals("")){
-                    if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505).get() == ButtonType.OK){
                         editarCompra();
                         CompraDTO.getCompraDTO().setCompra(null);
                         SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
                         stage.menuComprasView();
-                    }else{
-                        stage.menuComprasView();
-                    }
-                }else{
-                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
-                    if(tfFechaCompra.getText().equals("")){
-                        tfFechaCompra.requestFocus(); // Para enfocar un textField de forma dinámica
-                    }
-                }
             }
         }else if(event.getSource() == btnCancelar){
             stage.menuComprasView();
@@ -89,17 +71,13 @@ public class FormCompraController implements Initializable {
     
     public void cargarDatos(Compra compra){
         tfCompraId.setText(Integer.toString(compra.getCompraId()));
-        SimpleDateFormat Date = new SimpleDateFormat("yyyy-MM-dd");
-        String fecha = Date.format(compra.getFechaCompra());
-        tfFechaCompra.setText(fecha);
     }
     
     public void agregarCompra(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
-            String sql = "CALL sp_AgregarCompras(?)";
+            String sql = "CALL sp_AgregarCompras()";
             statement = conexion.prepareStatement(sql);
-            statement.setString(1, tfFechaCompra.getText());
             statement.execute();
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -119,10 +97,9 @@ public class FormCompraController implements Initializable {
     public void editarCompra(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
-            String sql = "CALL sp_EditarCompras(?, ?)";
+            String sql = "CALL sp_EditarCompras(?)";
             statement = conexion.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(tfCompraId.getText()));
-            statement.setString(2, tfFechaCompra.getText());
             statement.execute();
         }catch(SQLException e){
             System.out.println(e.getMessage());
