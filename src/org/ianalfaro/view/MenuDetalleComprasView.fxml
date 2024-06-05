@@ -21,6 +21,10 @@
             <Image url="@../image/FondoMenuDetalleCompras.png" />
          </image>
       </ImageView>
+      <TextField fx:id="tfDetalleCompraId" editable="false" layoutX="70.0" layoutY="185.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfCantidadCompra" layoutX="70.0" layoutY="301.0" prefHeight="39.0" prefWidth="264.0" />
+      <ComboBox fx:id="cmbProducto" layoutX="68.0" layoutY="409.0" prefHeight="39.0" prefWidth="264.0" />
+      <ComboBox fx:id="cmbCompra" layoutX="70.0" layoutY="534.0" prefHeight="39.0" prefWidth="264.0" />
       <TableView fx:id="tblDetalleCompras" layoutX="378.0" layoutY="138.0" onMouseClicked="#cargarForm" prefHeight="645.0" prefWidth="777.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colDetalleCompraId" minWidth="0.0" prefWidth="144.0" text="DETALLE COMPRA ID" />
@@ -43,9 +47,6 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbProducto" layoutX="68.0" layoutY="409.0" prefHeight="39.0" prefWidth="264.0" />
-      <ComboBox fx:id="cmbCompra" layoutX="70.0" layoutY="534.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfDetalleCompraId" editable="false" layoutX="70.0" layoutY="185.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="70.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DETALLE COMPRA ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -71,6 +72,5 @@
             <Font name="System Bold" size="51.0" />
          </font>
       </Text>
-      <TextField fx:id="tfCantidadCompra" layoutX="70.0" layoutY="301.0" prefHeight="39.0" prefWidth="264.0" />
    </children>
 </AnchorPane>

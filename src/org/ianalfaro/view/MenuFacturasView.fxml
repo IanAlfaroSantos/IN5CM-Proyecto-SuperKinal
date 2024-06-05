@@ -21,6 +21,14 @@
             <Image url="@../image/FondoMenuFacturas.png" />
          </image>
       </ImageView>
+      <TextField fx:id="tfFacturaId" editable="false" layoutX="53.0" layoutY="216.0" prefHeight="39.0" prefWidth="264.0" />
+      <ComboBox fx:id="cmbCliente" layoutX="51.0" layoutY="338.0" prefHeight="39.0" prefWidth="264.0" />
+      <ComboBox fx:id="cmbEmpleado" layoutX="51.0" layoutY="467.0" prefHeight="39.0" prefWidth="264.0" />
+      <Button fx:id="btnAgregarDetalleFactura" layoutX="53.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="264.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 50,0,0,0);" text="AGREGAR DETALLE FACTURA">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
       <TableView fx:id="tblFacturas" layoutX="378.0" layoutY="169.0" onMouseClicked="#cargarForm" prefHeight="614.0" prefWidth="757.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colFacturaId" minWidth="0.0" prefWidth="76.0" text="FACTURA ID" />
@@ -45,8 +53,6 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbCliente" layoutX="51.0" layoutY="338.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfFacturaId" editable="false" layoutX="53.0" layoutY="216.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="53.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTURA ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -62,16 +68,10 @@
             <Font name="System Bold" size="51.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cmbEmpleado" layoutX="51.0" layoutY="467.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="51.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btnAgregarDetalleFactura" layoutX="53.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="53.0" prefWidth="264.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 50,0,0,0);" text="AGREGAR DETALLE FACTURA">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

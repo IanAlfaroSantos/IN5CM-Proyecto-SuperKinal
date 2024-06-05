@@ -32,7 +32,7 @@
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="CANCELAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <Text fill="WHITE" layoutX="78.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO COMPRAS">
+      <Text fill="WHITE" layoutX="24.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO COMPRAS">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -40,6 +40,16 @@
       <Text fill="WHITE" layoutX="73.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMPRA ID">
          <font>
             <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="85.0" fitWidth="84.0" layoutX="375.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/ImagenForm.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="81.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRESIONAR &quot;GUARDAR&quot;, TODOS LOS DATOS SE AGREGARAN AUTOMATICAMENTE" textAlignment="CENTER" wrappingWidth="334.4375">
+         <font>
+            <Font name="Arial Black" size="28.0" />
          </font>
       </Text>
    </children>

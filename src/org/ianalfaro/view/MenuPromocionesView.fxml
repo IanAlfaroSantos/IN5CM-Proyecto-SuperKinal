@@ -22,6 +22,12 @@
             <Image url="@../image/FondoMenuPromociones.png" />
          </image>
       </ImageView>
+      <TextField fx:id="tfPromocionId" editable="false" layoutX="46.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
+      <TextArea fx:id="taDescripcionPromocion" layoutX="46.0" layoutY="282.0" prefHeight="155.0" prefWidth="317.0" wrapText="true" />
+      <TextField fx:id="tfFechaInicio" layoutX="46.0" layoutY="510.0" prefHeight="39.0" prefWidth="317.0" />
+      <TextField fx:id="tfFechaFinalizacion" layoutX="46.0" layoutY="623.0" prefHeight="39.0" prefWidth="317.0" />
+      <TextField fx:id="tfPrecioPromocion" layoutX="405.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
+      <ComboBox fx:id="cmbProducto" layoutX="817.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
       <TableView fx:id="tblPromociones" layoutX="405.0" layoutY="228.0" onMouseClicked="#cargarForm" prefHeight="572.0" prefWidth="757.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colPromocionId" minWidth="0.0" prefWidth="97.0" text="PROMOCION ID" />
@@ -46,8 +52,6 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbProducto" layoutX="817.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextField fx:id="tfPromocionId" editable="false" layoutX="46.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
       <Text fill="WHITE" layoutX="46.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROMOCION ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -78,14 +82,10 @@
             <Font name="System Bold" size="51.0" />
          </font>
       </Text>
-      <TextField fx:id="tfPrecioPromocion" layoutX="405.0" layoutY="153.0" prefHeight="39.0" prefWidth="317.0" />
       <Text fill="WHITE" layoutX="46.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA INICIO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfFechaInicio" layoutX="46.0" layoutY="510.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextField fx:id="tfFechaFinalizacion" layoutX="46.0" layoutY="623.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextArea fx:id="taDescripcionPromocion" layoutX="46.0" layoutY="282.0" prefHeight="155.0" prefWidth="317.0" wrapText="true" />
    </children>
 </AnchorPane>

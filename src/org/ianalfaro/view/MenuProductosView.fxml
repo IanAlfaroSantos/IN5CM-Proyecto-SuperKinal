@@ -22,6 +22,19 @@
             <Image url="@../image/FondoMenuProductos.png" />
          </image>
       </ImageView>
+      <TextField fx:id="tfProductoId" editable="false" layoutX="23.0" layoutY="160.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfNombreProducto" layoutX="23.0" layoutY="260.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextArea fx:id="taDescripcionProducto" layoutX="23.0" layoutY="349.0" prefHeight="110.0" prefWidth="264.0" />
+      <TextField fx:id="tfCantidadStock" layoutX="23.0" layoutY="509.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfPrecioVentaU" layoutX="23.0" layoutY="603.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfPrecioVentaM" layoutX="23.0" layoutY="695.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextField fx:id="tfPrecioCompra" layoutX="23.0" layoutY="787.0" prefHeight="39.0" prefWidth="264.0" />
+      <ComboBox fx:id="cmbDistribuidor" layoutX="398.0" layoutY="160.0" prefHeight="39.0" prefWidth="331.0" />
+      <ComboBox fx:id="cmbCategoriaProducto" layoutX="817.0" layoutY="160.0" prefHeight="39.0" prefWidth="331.0" />
+      <Button fx:id="btnAgregarImagen" layoutX="1210.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="273.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="AGREGAR IMAGEN AL PRODUCTO">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
       <TableView fx:id="tblProductos" layoutX="306.0" layoutY="245.0" onMouseClicked="#cargarForm" prefHeight="668.0" prefWidth="1177.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colProductoId" minWidth="0.0" prefWidth="82.0" text="PRODUCTO ID" />
@@ -50,8 +63,6 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbDistribuidor" layoutX="398.0" layoutY="160.0" prefHeight="39.0" prefWidth="331.0" />
-      <TextField fx:id="tfProductoId" editable="false" layoutX="23.0" layoutY="160.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="22.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRODUCTO ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -82,41 +93,30 @@
             <Font name="System Bold" size="68.0" />
          </font>
       </Text>
-      <TextField fx:id="tfNombreProducto" layoutX="23.0" layoutY="260.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="22.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANTIDAD STOCK" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfCantidadStock" layoutX="23.0" layoutY="509.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="22.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRECIO VENTA UNITARIO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <TextField fx:id="tfPrecioVentaU" layoutX="23.0" layoutY="603.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextField fx:id="tfPrecioVentaM" layoutX="23.0" layoutY="695.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="22.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRECIO VENTA MAYOR" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextArea fx:id="taDescripcionProducto" layoutX="23.0" layoutY="349.0" prefHeight="110.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="22.0" layoutY="769.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRECIO COMPRA" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="tfPrecioCompra" layoutX="23.0" layoutY="787.0" prefHeight="39.0" prefWidth="264.0" />
       <Text fill="WHITE" layoutX="1210.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMAGEN DEL PRODUCTO" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Text>
-      <Button fx:id="btnAgregarImagen" layoutX="1210.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="273.0" style="-fx-background-color: yellow; -fx-border-color: red; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="AGREGAR IMAGEN AL PRODUCTO">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
-         </font></Button>
-      <ComboBox fx:id="cmbCategoriaProducto" layoutX="817.0" layoutY="160.0" prefHeight="39.0" prefWidth="331.0" />
    </children>
 </AnchorPane>

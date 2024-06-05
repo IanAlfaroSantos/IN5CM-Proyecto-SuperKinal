@@ -22,6 +22,11 @@
             <Image url="@../image/FondoMenuTicketSoportes.png" />
          </image>
       </ImageView>
+      <TextField fx:id="tfTicketSoporteId" editable="false" layoutX="47.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
+      <TextArea fx:id="taDescripcionTicket" layoutX="47.0" layoutY="266.0" prefHeight="240.0" prefWidth="293.0" />
+      <ComboBox fx:id="cmbEstatus" layoutX="47.0" layoutY="581.0" prefHeight="39.0" prefWidth="293.0" />
+      <ComboBox fx:id="cmbCliente" layoutX="401.0" layoutY="144.0" prefHeight="39.0" prefWidth="331.0" />
+      <ComboBox fx:id="cmbFacturaId" layoutX="818.0" layoutY="144.0" prefHeight="39.0" prefWidth="317.0" />
       <TableView fx:id="tblTicketSoportes" layoutX="378.0" layoutY="242.0" onMouseClicked="#cargarForm" prefHeight="541.0" prefWidth="757.0" style="-fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);">
         <columns>
           <TableColumn fx:id="colTicketSoporteId" minWidth="0.0" prefWidth="66.0" text="TICKET ID" />
@@ -45,11 +50,6 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
-      <ComboBox fx:id="cmbEstatus" layoutX="47.0" layoutY="581.0" prefHeight="39.0" prefWidth="293.0" />
-      <ComboBox fx:id="cmbCliente" layoutX="401.0" layoutY="144.0" prefHeight="39.0" prefWidth="331.0" />
-      <ComboBox fx:id="cmbFacturaId" layoutX="818.0" layoutY="144.0" prefHeight="39.0" prefWidth="317.0" />
-      <TextField fx:id="tfTicketSoporteId" editable="false" layoutX="47.0" layoutY="144.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextArea fx:id="taDescripcionTicket" layoutX="47.0" layoutY="266.0" prefHeight="240.0" prefWidth="293.0" />
       <Text fill="WHITE" layoutX="47.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKET SOPORTE ID" wrappingWidth="344.13671875">
          <font>
             <Font name="System Bold" size="24.0" />

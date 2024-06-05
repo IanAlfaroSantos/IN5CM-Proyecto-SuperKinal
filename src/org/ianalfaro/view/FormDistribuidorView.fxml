@@ -18,12 +18,12 @@
             <Image url="@../image/FondoFormDistribuidor.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfDistribuidorId" editable="false" layoutX="91.0" layoutY="176.0" prefHeight="25.0" prefWidth="320.0" />
-      <TextField fx:id="tfNombreDistribuidor" layoutX="89.0" layoutY="253.0" prefHeight="25.0" prefWidth="320.0" />
-      <TextField fx:id="tfDireccionDistribuidor" layoutX="92.0" layoutY="322.0" prefHeight="25.0" prefWidth="320.0" />
-      <TextField fx:id="tfNitDistribuidor" layoutX="91.0" layoutY="398.0" prefHeight="25.0" prefWidth="320.0" />
-      <TextField fx:id="tfTelefonoDistribuidor" layoutX="92.0" layoutY="473.0" prefHeight="25.0" prefWidth="320.0" />
-      <TextField fx:id="tfWeb" layoutX="90.0" layoutY="548.0" prefHeight="25.0" prefWidth="320.0" />
+      <TextField fx:id="tfDistribuidorId" editable="false" layoutX="40.0" layoutY="176.0" prefHeight="25.0" prefWidth="369.0" />
+      <TextField fx:id="tfNombreDistribuidor" layoutX="38.0" layoutY="253.0" prefHeight="25.0" prefWidth="369.0" />
+      <TextField fx:id="tfDireccionDistribuidor" layoutX="41.0" layoutY="322.0" prefHeight="25.0" prefWidth="369.0" />
+      <TextField fx:id="tfNitDistribuidor" layoutX="40.0" layoutY="398.0" prefHeight="25.0" prefWidth="369.0" />
+      <TextField fx:id="tfTelefonoDistribuidor" layoutX="41.0" layoutY="473.0" prefHeight="25.0" prefWidth="369.0" />
+      <TextField fx:id="tfWeb" layoutX="39.0" layoutY="548.0" prefHeight="25.0" prefWidth="369.0" />
       <GridPane layoutX="53.0" layoutY="595.0" prefHeight="108.0" prefWidth="390.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -37,40 +37,45 @@
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="CANCELAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <Text fill="WHITE" layoutX="86.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO DISTRIBUIDORES">
+      <Text fill="WHITE" layoutX="38.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FORMULARIO DISTRIBUIDORES">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DISTRIBUIDOR ID">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE DISTRIBUIDOR">
+      <Text fill="WHITE" layoutX="41.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DISTRIBUIDOR ID">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIRECCION DISTRIBUIDOR">
+      <Text fill="WHITE" layoutX="41.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE DISTRIBUIDOR">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIT DISTRIBUIDOR">
+      <Text fill="WHITE" layoutX="41.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIRECCION DISTRIBUIDOR">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONO DISTRIBUIDOR">
+      <Text fill="WHITE" layoutX="41.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIT DISTRIBUIDOR">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="92.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WEB">
+      <Text fill="WHITE" layoutX="41.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONO DISTRIBUIDOR">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <Text fill="WHITE" layoutX="41.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WEB">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="62.0" fitWidth="72.0" layoutX="402.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/ImagenForm.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

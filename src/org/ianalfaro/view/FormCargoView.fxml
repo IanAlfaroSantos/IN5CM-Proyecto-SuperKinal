@@ -17,8 +17,9 @@
             <Image url="@../image/FondoFormCargo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tfNombreCargo" layoutX="35.0" layoutY="297.0" prefHeight="25.0" prefWidth="390.0" />
       <TextField fx:id="tfCargoId" editable="false" layoutX="35.0" layoutY="186.0" prefHeight="25.0" prefWidth="390.0" />
+      <TextField fx:id="tfNombreCargo" layoutX="35.0" layoutY="297.0" prefHeight="25.0" prefWidth="390.0" />
+      <TextArea fx:id="taDescripcionCargo" layoutX="35.0" layoutY="408.0" prefHeight="150.0" prefWidth="390.0" wrapText="true" />
       <GridPane layoutX="53.0" layoutY="595.0" prefHeight="108.0" prefWidth="390.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,6 +33,5 @@
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="CANCELAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <TextArea fx:id="taDescripcionCargo" layoutX="35.0" layoutY="408.0" prefHeight="150.0" prefWidth="390.0" wrapText="true" />
    </children>
 </AnchorPane>
