@@ -143,6 +143,14 @@ CREATE TABLE DetalleCompras(
 		REFERENCES Compras(compraId)
 );
 
+-- ************************ NIVELES DE ACCESO ************************ --
+
+CREATE TABLE NivelesAccesos(
+	nivelAccesoId INT NOT NULL AUTO_INCREMENT,
+	nivelAcceso VARCHAR(40) NOT NULL,
+    PRIMARY KEY PK_nivelAccesoId(nivelAccesoId)
+);
+
 -- ************************ USUARIOS ************************ --
 
 CREATE TABLE Usuarios(
@@ -156,14 +164,6 @@ CREATE TABLE Usuarios(
 		REFERENCES NivelesAccesos(nivelAccesoId),
 	CONSTRAINT FK_Usuarios_Empleados FOREIGN KEY Usuarios(empleadoId)
 		REFERENCES Empleados(empleadoId)
-);
-
--- ************************ NIVELES DE ACCESO ************************ --
-
-CREATE TABLE NivelesAccesos(
-	nivelAccesoId INT NOT NULL AUTO_INCREMENT,
-	nivelAcceso VARCHAR(40) NOT NULL,
-    PRIMARY KEY PK_nivelAccesoId(nivelAccesoId)
 );
 
 set global time_zone = '-6:00';

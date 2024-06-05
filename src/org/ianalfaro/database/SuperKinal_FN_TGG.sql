@@ -165,5 +165,10 @@ BEGIN
 END$$
 DELIMITER ;
 
+SELECT * FROM DetalleFacturas
+JOIN Facturas ON DetalleFacturas.facturaId = Facturas.facturaId
+JOIN Clientes ON Facturas.clienteId = Clientes.clienteId
+JOIN Productos ON DetalleFacturas.productoId = Productos.productoId
+WHERE Facturas.facturaId = 1;
 
 set global time_zone = '-6:00';
