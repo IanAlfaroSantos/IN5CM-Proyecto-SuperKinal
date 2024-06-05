@@ -43,7 +43,7 @@
             <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="AGREGAR" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="EDITAR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="ELIMINAR" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="REPORTES" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnReportes" mnemonicParsing="false" prefHeight="70.0" prefWidth="120.0" style="-fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 80,0,0,0);" text="REPORTES" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="108.0" style="-fx-background-color: red; -fx-border-color: blue; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, yellow, 40,0,0,0);" text="REGRESAR" />
@@ -60,5 +60,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <TextField fx:id="tfClienteVerId" editable="false" layoutX="50.0" layoutY="170.0" opacity="0.0" prefHeight="39.0" prefWidth="36.0" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

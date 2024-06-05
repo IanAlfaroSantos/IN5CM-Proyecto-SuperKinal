@@ -26,6 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.ianalfaro.dao.Conexion;
 import org.ianalfaro.dto.ClienteDTO;
 import org.ianalfaro.model.Cliente;
+import org.ianalfaro.report.GenerarReporteCliente;
 import org.ianalfaro.system.Main;
 import org.ianalfaro.utils.SuperKinalAlert;
 
@@ -49,7 +50,7 @@ public class MenuClientesController implements Initializable {
     TableColumn colClienteId, colNombre, colApellido, colTelefono, colDireccion, colNit;
     
     @FXML
-    Button btnBack, btnAgregar, btnEditar, btnEliminar, btnBuscar;
+    Button btnBack, btnAgregar, btnEditar, btnEliminar, btnBuscar, btnReportes;
     
     @FXML
     TextField tfClienteId;
@@ -77,6 +78,11 @@ public class MenuClientesController implements Initializable {
             }else{
                 op = 3;
                 cargarDatos();
+            }
+        }else if(event.getSource() == btnReportes){
+            Cliente selectedCliente = (Cliente)tblClientes.getSelectionModel().getSelectedItems();
+            if(selectedCliente != null){
+                GenerarReporteCliente.getInstance().generarCliente(Integer.parseInt(tfClienteId.getText()));
             }
         }
     }

@@ -76,6 +76,18 @@ CREATE PROCEDURE sp_EditarClientes(IN cliId INT, IN nom VARCHAR(30), IN ape VARC
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE sp_EditarClientesVerId(IN cliId INT)
+	BEGIN
+		UPDATE Clientes
+			SET
+				clienteId = cliId
+					WHERE clienteId = cliId;
+	END$$
+
+DELIMITER ;
+
 -- ********************************** CARGOS ********************************** --
 
 DELIMITER $$
@@ -580,11 +592,12 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_EditarImagen(IN imaPro LONGBLOB)
+CREATE PROCEDURE sp_EditarImagen(IN proId INT, IN imaPro LONGBLOB)
 	BEGIN
 		UPDATE Productos
 			SET
-				imagenProducto = imaPro;
+				imagenProducto = imaPro
+					WHERE productoId = proId;
 	END$$
 
 DELIMITER ;

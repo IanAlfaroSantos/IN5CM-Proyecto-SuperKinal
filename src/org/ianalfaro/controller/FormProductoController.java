@@ -49,7 +49,7 @@ public class FormProductoController implements Initializable {
     Button btnCargarImagen, btnBuscar, btnBack;
     
     @FXML
-    TextField tfProductoId;
+    TextField tfProductoId, tfProductoCargarId;
     
     @FXML
     Label lblNombreProducto;
@@ -69,7 +69,7 @@ public class FormProductoController implements Initializable {
                 SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
                 stage.formProductoView();
             }else{
-                stage.menuEmpleadoView();
+                stage.menuProductoView();
             }
         }else if(event.getSource() == btnBuscar){
             Producto producto = buscarProducto();
@@ -115,10 +115,11 @@ public class FormProductoController implements Initializable {
     public void editarImagen(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
-            String sql = "CALL sp_EditarImagen(?)";
+            String sql = "CALL sp_EditarImagen(?, ?)";
             statement = conexion.prepareStatement(sql);
+            statement.setInt(1, Integer.parseInt(tfProductoCargarId.getText()));
             FileInputStream img = new FileInputStream(files.get(0));
-            statement.setBinaryStream(1, img);
+            statement.setBinaryStream(2, img);
             statement.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());

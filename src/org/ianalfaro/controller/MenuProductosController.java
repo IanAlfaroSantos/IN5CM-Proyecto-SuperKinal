@@ -31,6 +31,7 @@ import org.ianalfaro.dto.ProductoDTO;
 import org.ianalfaro.model.CategoriaProducto;
 import org.ianalfaro.model.Distribuidor;
 import org.ianalfaro.model.Producto;
+import org.ianalfaro.report.GenerarReporteProducto;
 import org.ianalfaro.system.Main;
 import org.ianalfaro.utils.SuperKinalAlert;
 
@@ -54,7 +55,7 @@ public class MenuProductosController implements Initializable {
     TableColumn colProductoId, colNombreProducto, colDescripcionProducto, colCantidadStock, colPrecioVentaU, colPrecioVentaM, colPrecioCompra, colImagen, colDistribuidor, colCategoriaProducto;
     
     @FXML
-    Button btnBack, btnVaciar, btnGuardar, btnAgregarImagen;
+    Button btnBack, btnVaciar, btnGuardar, btnAgregarImagen, btnReporteProducto;
     
     @FXML
     TextField tfProductoId, tfNombreProducto, tfCantidadStock, tfPrecioVentaU, tfPrecioVentaM, tfPrecioCompra;
@@ -88,6 +89,8 @@ public class MenuProductosController implements Initializable {
         }else if(event.getSource() == btnAgregarImagen){
             ProductoDTO.getProductoDTO().setProducto((Producto)tblProductos.getSelectionModel().getSelectedItem());
             stage.formProductoView();
+        }else if(event.getSource() == btnReporteProducto){
+            GenerarReporteProducto.getInstance().generarProducto(Integer.parseInt(tfProductoId.getText()));
         }
     }
     

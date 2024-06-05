@@ -73,5 +73,10 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
+      <Button fx:id="btnFinalizarFactura" layoutX="942.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="193.0" style="-fx-background-color: #00ff00; -fx-border-color: #00FFFF; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="FINALIZAR FACTURA">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

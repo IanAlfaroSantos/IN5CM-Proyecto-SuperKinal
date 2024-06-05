@@ -118,5 +118,10 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Text>
+      <Button fx:id="btnReporteProducto" layoutX="1210.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="47.0" prefWidth="273.0" style="-fx-background-color: #00ff00; -fx-border-color: #00FFFF; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, blue, 50,0,0,0);" text="GENERAR REPORTE PRODUCTO">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

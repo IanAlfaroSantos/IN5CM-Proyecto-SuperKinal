@@ -28,6 +28,7 @@ import org.ianalfaro.dao.Conexion;
 import org.ianalfaro.model.Factura;
 import org.ianalfaro.model.Cliente;
 import org.ianalfaro.model.Empleado;
+import org.ianalfaro.report.GenerarReporteFactura;
 import org.ianalfaro.system.Main;
 import org.ianalfaro.utils.SuperKinalAlert;
 
@@ -51,7 +52,7 @@ public class MenuFacturasController implements Initializable {
     TableColumn colFacturaId, colFecha, colHora, colCliente, colEmpleado, colTotal;
     
     @FXML
-    Button btnBack, btnVaciar, btnGuardar, btnAgregarDetalleFactura;
+    Button btnBack, btnVaciar, btnGuardar, btnAgregarDetalleFactura, btnFinalizarFactura;
     
     @FXML
     TextField tfFacturaId, tfFecha, tfHora, tfTotal;
@@ -81,6 +82,8 @@ public class MenuFacturasController implements Initializable {
             }
         }else if(event.getSource() == btnAgregarDetalleFactura){
             stage.menuDetalleFacturaView();
+        }else if(event.getSource() == btnFinalizarFactura){
+            GenerarReporteFactura.getInstance().generarFactura(Integer.parseInt(tfFacturaId.getText()));
         }
     }
     

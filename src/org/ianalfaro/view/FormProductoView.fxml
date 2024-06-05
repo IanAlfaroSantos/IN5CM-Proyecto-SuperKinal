@@ -34,7 +34,7 @@
             <Image url="@../image/ArrastreLaImagen.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnCargarImagen" layoutX="870.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);" text="CARGAR IMAGEN" />
+      <Button fx:id="btnCargarImagen" layoutX="885.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);" text="CARGAR IMAGEN" />
       <Label fx:id="lblNombreProducto" layoutX="60.0" layoutY="239.0" prefHeight="35.0" prefWidth="188.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -57,5 +57,10 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Text>
+      <TextField fx:id="tfProductoCargarId" layoutX="811.0" layoutY="529.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="261.0" promptText="Ingrese el ID del producto a cargar" style="-fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, white, 10,0,0,0);">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
