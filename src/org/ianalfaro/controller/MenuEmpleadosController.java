@@ -62,17 +62,94 @@ public class MenuEmpleadosController implements Initializable {
     @FXML
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnBack){
-            stage.menuPrincipalView();
+            if(op == 3){
+                stage.formUsuarioView();
+                EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
+            }else{
+                stage.menuPrincipalView();
+            }
         }else if(event.getSource() == btnGuardar){
             if(tfEmpleadoId.getText().equals("")){
-                agregarEmpleado();
-                SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
-                cargarDatos();
+                if(!tfNombreEmpleado.getText().equals("") && !tfApellidoEmpleado.getText().equals("") && !tfSueldo.getText().equals("") && !tfHoraEntrada.getText().equals("") && !tfHoraSalida.getText().equals("")){    
+                    agregarEmpleado();
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
+                    cargarDatos();
+                }else{
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
+                    if(tfNombreEmpleado.getText().equals("")){
+                        tfNombreEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfApellidoEmpleado.getText().equals("")){
+                        tfApellidoEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfSueldo.getText().equals("")){
+                        tfSueldo.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraEntrada.getText().equals("")){
+                        tfHoraEntrada.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraSalida.getText().equals("")){
+                        tfHoraSalida.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }
+                }
+            }else if(op == 3){
+                op = 3;
+                if(!tfNombreEmpleado.getText().equals("") && !tfApellidoEmpleado.getText().equals("") && !tfSueldo.getText().equals("") && !tfHoraEntrada.getText().equals("") && !tfHoraSalida.getText().equals("")){    
+                    agregarEmpleado();
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(400);
+                    cargarDatos();
+                    stage.formUsuarioView();
+                }else{
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
+                    if(tfNombreEmpleado.getText().equals("")){
+                        tfNombreEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfApellidoEmpleado.getText().equals("")){
+                        tfApellidoEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfSueldo.getText().equals("")){
+                        tfSueldo.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraEntrada.getText().equals("")){
+                        tfHoraEntrada.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraSalida.getText().equals("")){
+                        tfHoraSalida.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }
+                }
+                if(!tfNombreEmpleado.getText().equals("") && !tfApellidoEmpleado.getText().equals("") && !tfSueldo.getText().equals("") && !tfHoraEntrada.getText().equals("") && !tfHoraSalida.getText().equals("")){    
+                    editarEmpleado();
+                    EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
+                    SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505);
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
+                    cargarDatos();
+                }else{
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
+                    if(tfNombreEmpleado.getText().equals("")){
+                        tfNombreEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfApellidoEmpleado.getText().equals("")){
+                        tfApellidoEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfSueldo.getText().equals("")){
+                        tfSueldo.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraEntrada.getText().equals("")){
+                        tfHoraEntrada.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraSalida.getText().equals("")){
+                        tfHoraSalida.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }
+                }
             }else{
-                editarEmpleado();
-                SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505);
-                SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
-                cargarDatos();
+                if(!tfNombreEmpleado.getText().equals("") && !tfApellidoEmpleado.getText().equals("") && !tfSueldo.getText().equals("") && !tfHoraEntrada.getText().equals("") && !tfHoraSalida.getText().equals("")){    
+                    editarEmpleado();
+                    EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
+                    SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505);
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
+                    cargarDatos();
+                }else{
+                    SuperKinalAlert.getInstance().mostrarAlertaInformacion(600);
+                    if(tfNombreEmpleado.getText().equals("")){
+                        tfNombreEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfApellidoEmpleado.getText().equals("")){
+                        tfApellidoEmpleado.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfSueldo.getText().equals("")){
+                        tfSueldo.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraEntrada.getText().equals("")){
+                        tfHoraEntrada.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }else if(tfHoraSalida.getText().equals("")){
+                        tfHoraSalida.requestFocus(); // Para enfocar un textField de forma dinámica
+                    }
+                }
             }
         }else if(event.getSource() == btnVaciar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(605).get() == ButtonType.OK){
@@ -288,5 +365,9 @@ public class MenuEmpleadosController implements Initializable {
     
     public Main getStage() {
         return stage;
+    }
+
+    public void setOp(int op) {
+        this.op = op;
     }
 }

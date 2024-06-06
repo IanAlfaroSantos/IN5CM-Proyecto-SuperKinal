@@ -36,23 +36,22 @@ public class GenerarReporteCliente {
         return instance;
     }
     
-    public void generarCliente(int cliId){
+    public void generarCliente(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
             
             Map<String, Object> parametros = new HashMap<>();
-            parametros.put("cliId", cliId);
             
             Stage reportStage = new Stage();
             
-            JasperPrint reporte = JasperFillManager.fillReport(GenerarReporteCliente.class.getResourceAsStream("/org/ianalfaro/report/Cliente.jasper"), parametros, conexion);
+            JasperPrint reporte = JasperFillManager.fillReport(GenerarReporteCliente.class.getResourceAsStream("/org/ianalfaro/report/Clientes.jasper"), parametros, conexion);
             
             JRViewerFX reportView = new JRViewerFX(reporte);
             
             Pane root = new Pane();
             root.getChildren().add(reportView);
             
-            reportView.setPrefSize(1000, 800);
+            reportView.setPrefSize(1365, 740);
             
             Scene scene = new Scene(root);
             reportStage.setScene(scene);

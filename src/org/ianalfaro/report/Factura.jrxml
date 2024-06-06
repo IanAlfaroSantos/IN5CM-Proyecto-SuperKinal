@@ -10,7 +10,7 @@
 		<![CDATA[SELECT * FROM DetalleFacturas
 JOIN Facturas ON DetalleFacturas.facturaId = Facturas.facturaId 
 JOIN Clientes ON Facturas.clienteId = Clientes.clienteId 
-JOIN Productos ON DetalleFacturas.productoId = Productos.productoId 
+JOIN Productos ON DetalleFacturas.productoId = Productos.productoId
 WHERE Facturas.facturaId = $P{facId}]]>
 	</queryString>
 	<field name="facturaId" class="java.lang.Integer">

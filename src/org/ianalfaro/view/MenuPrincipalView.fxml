@@ -30,12 +30,18 @@
                   <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#handleButtonAction" text="Compras" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Reportes" />
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+               <items>
+                  <MenuItem fx:id="btnReporteClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Reportes Clientes" />
+                  <MenuItem fx:id="btnReporteFacturas" mnemonicParsing="false" onAction="#handleButtonAction" text="Reportes Facturas" />
+                  <MenuItem fx:id="btnReporteProductos" mnemonicParsing="false" onAction="#handleButtonAction" text="Reportes Productos" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Ayuda" />
+            <Menu mnemonicParsing="false" text="Cambiar de Cuenta">
+               <items>
+                  <MenuItem fx:id="btnLogin" mnemonicParsing="false" onAction="#handleButtonAction" text="Iniciar Sesion" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </children>

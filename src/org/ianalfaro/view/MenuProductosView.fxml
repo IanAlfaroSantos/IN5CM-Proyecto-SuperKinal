@@ -24,7 +24,7 @@
       </ImageView>
       <TextField fx:id="tfProductoId" editable="false" layoutX="23.0" layoutY="160.0" prefHeight="39.0" prefWidth="264.0" />
       <TextField fx:id="tfNombreProducto" layoutX="23.0" layoutY="260.0" prefHeight="39.0" prefWidth="264.0" />
-      <TextArea fx:id="taDescripcionProducto" layoutX="23.0" layoutY="349.0" prefHeight="110.0" prefWidth="264.0" />
+      <TextArea fx:id="taDescripcionProducto" layoutX="23.0" layoutY="349.0" prefHeight="110.0" prefWidth="264.0" wrapText="true" />
       <TextField fx:id="tfCantidadStock" layoutX="23.0" layoutY="509.0" prefHeight="39.0" prefWidth="264.0" />
       <TextField fx:id="tfPrecioVentaU" layoutX="23.0" layoutY="603.0" prefHeight="39.0" prefWidth="264.0" />
       <TextField fx:id="tfPrecioVentaM" layoutX="23.0" layoutY="695.0" prefHeight="39.0" prefWidth="264.0" />

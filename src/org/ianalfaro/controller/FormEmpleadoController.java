@@ -33,6 +33,7 @@ import org.ianalfaro.utils.SuperKinalAlert;
  */
 public class FormEmpleadoController implements Initializable {
     private Main stage;
+    private int op;
     
     private static Connection conexion = null;
     private static PreparedStatement statement = null;
@@ -50,16 +51,16 @@ public class FormEmpleadoController implements Initializable {
    @FXML
    public void handleButtonAction(ActionEvent event) {
         if(event.getSource() == btnCancelar){
-            stage.menuEmpleadoView();
+            stage.menuEmpleadoView(op);
             EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
         }else if(event.getSource() == btnGuardar){
             if(SuperKinalAlert.getInstance().mostrarAlertaConfirmacion(505).get() == ButtonType.OK){
                 asignarEncargado();
                 EmpleadoDTO.getEmpleadoDTO().setEmpleado(null);
                 SuperKinalAlert.getInstance().mostrarAlertaInformacion(500);
-                stage.menuEmpleadoView();
+                stage.menuEmpleadoView(0);
             }else{
-                stage.menuEmpleadoView();
+                stage.menuEmpleadoView(0);
             }
         }
     }
@@ -150,5 +151,9 @@ public class FormEmpleadoController implements Initializable {
 
     public void setStage(Main stage) {
         this.stage = stage;
+    }
+
+    public void setOp(int op) {
+        this.op = op;
     }
 }

@@ -90,7 +90,7 @@ public class MenuProductosController implements Initializable {
             ProductoDTO.getProductoDTO().setProducto((Producto)tblProductos.getSelectionModel().getSelectedItem());
             stage.formProductoView();
         }else if(event.getSource() == btnReporteProducto){
-            GenerarReporteProducto.getInstance().generarProducto(Integer.parseInt(tfProductoId.getText()));
+            GenerarReporteProducto.getInstance().generarProducto();
         }
     }
     

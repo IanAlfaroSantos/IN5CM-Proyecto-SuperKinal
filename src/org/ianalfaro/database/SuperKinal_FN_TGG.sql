@@ -168,15 +168,12 @@ DELIMITER ;
 SELECT * FROM DetalleFacturas
 JOIN Facturas ON DetalleFacturas.facturaId = Facturas.facturaId
 JOIN Clientes ON Facturas.clienteId = Clientes.clienteId
-JOIN Productos ON DetalleFacturas.productoId = Productos.productoId
-WHERE Facturas.facturaId = 1;
+JOIN Productos ON DetalleFacturas.productoId = Productos.productoId;
 
 SELECT * FROM Productos
 JOIN Distribuidores ON Productos.distribuidorId = Distribuidores.distribuidorId
-JOIN CategoriaProductos ON Productos.categoriaProductoId = CategoriaProductos.categoriaProductoId
-WHERE Productos.productoId = 1;
+JOIN CategoriaProductos ON Productos.categoriaProductoId = CategoriaProductos.categoriaProductoId;
 
-SELECT * FROM Clientes
-WHERE Clientes.clienteId = 1;
+SELECT * FROM Clientes;
 
 set global time_zone = '-6:00';

@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS SuperKinal;
+ DROP DATABASE IF EXISTS SuperKinal;
 
 CREATE DATABASE IF NOT EXISTS SuperKinal;
 
@@ -156,7 +156,7 @@ CREATE TABLE NivelesAccesos(
 CREATE TABLE Usuarios(
 	usuarioId INT NOT NULL AUTO_INCREMENT,
     usuario VARCHAR(30) NOT NULL,
-    contrasenia VARCHAR(30) NOT NULL,
+    contrasenia VARCHAR(100) NOT NULL,
     nivelAccesoId INT NOT NULL,
     empleadoId INT NOT NULL,
     PRIMARY KEY PK_usuarioId(usuarioId),
@@ -166,4 +166,8 @@ CREATE TABLE Usuarios(
 		REFERENCES Empleados(empleadoId)
 );
 
+INSERT INTO NivelesAccesos(nivelAcceso) VALUES
+	('Admin'),
+    ('User');
+    
 set global time_zone = '-6:00';

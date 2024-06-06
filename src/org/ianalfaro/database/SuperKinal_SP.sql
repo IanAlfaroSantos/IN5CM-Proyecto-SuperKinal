@@ -100,6 +100,8 @@ CREATE PROCEDURE sp_AgregarCargos(IN nomCar VARCHAR(30), IN desCar VARCHAR(300))
 
 DELIMITER ;
 
+CALL sp_AgregarCargos('Gerente', 'Se encarga de que los clientes no tengan problemas en sus compras');
+
 DELIMITER $$
 
 CREATE PROCEDURE sp_ListarCargos()
@@ -920,7 +922,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_AgregarUsuarios(IN usu VARCHAR(30), IN con VARCHAR(30), IN nivAccId INT, IN empId INT)
+CREATE PROCEDURE sp_AgregarUsuarios(IN usu VARCHAR(30), IN con VARCHAR(100), IN nivAccId INT, IN empId INT)
 	BEGIN
 		INSERT INTO Usuarios (usuario, contrasenia, nivelAccesoId, empleadoId)
 			VALUES (usu, con, nivAccId, empId);
@@ -930,7 +932,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE sp_BuscarUsuarios(IN usuId INT)
+CREATE PROCEDURE sp_BuscarUsuarios(IN usu VARCHAR(30))
 	BEGIN
 		SELECT
 			Usuarios.usuarioId,
@@ -939,9 +941,25 @@ CREATE PROCEDURE sp_BuscarUsuarios(IN usuId INT)
             Usuarios.nivelAccesoId,
             Usuarios.empleadoId
 				FROM Usuarios
-					WHERE usuarioId = usuId;
+					WHERE usuario = usu;
 	END$$
     
 DELIMITER ;
+
+-- ********************************** NIVELES ACCESOS ********************************** --
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_listarNivelesAccesos()
+	BEGIN
+		SELECT
+			NivelesAccesos.nivelAccesoId,
+            NivelesAccesos.nivelAcceso
+				FROM NivelesAccesos;
+	END $$
+    
+DELIMITER ;
+
+SELECT * FROM Usuarios;
 
 set global time_zone = '-6:00';

@@ -52,7 +52,7 @@ public class GenerarReporteFactura {
             Pane root = new Pane();
             root.getChildren().add(reportView);
             
-            reportView.setPrefSize(1000, 800);
+            reportView.setPrefSize(800, 740);
             
             Scene scene = new Scene(root);
             reportStage.setScene(scene);

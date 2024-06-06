@@ -80,10 +80,7 @@ public class MenuClientesController implements Initializable {
                 cargarDatos();
             }
         }else if(event.getSource() == btnReportes){
-            Cliente selectedCliente = (Cliente)tblClientes.getSelectionModel().getSelectedItems();
-            if(selectedCliente != null){
-                GenerarReporteCliente.getInstance().generarCliente(Integer.parseInt(tfClienteId.getText()));
-            }
+            GenerarReporteCliente.getInstance().generarCliente();
         }
     }
     

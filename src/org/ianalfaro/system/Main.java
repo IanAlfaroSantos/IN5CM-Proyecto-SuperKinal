@@ -19,7 +19,9 @@ import org.ianalfaro.controller.FormClienteController;
 import org.ianalfaro.controller.FormCompraController;
 import org.ianalfaro.controller.FormDistribuidorController;
 import org.ianalfaro.controller.FormEmpleadoController;
+import org.ianalfaro.controller.FormLoginController;
 import org.ianalfaro.controller.FormProductoController;
+import org.ianalfaro.controller.FormUsuarioController;
 import org.ianalfaro.controller.MenuCargosController;
 import org.ianalfaro.controller.MenuCategoriaProductosController;
 import org.ianalfaro.controller.MenuClientesController;
@@ -49,7 +51,7 @@ public class Main extends Application {
         
         this.stage = stage;
         stage.setTitle("Super Kinal App");
-        menuPrincipalView();
+        formLoginView();
         stage.show();
     }
     
@@ -133,9 +135,10 @@ public class Main extends Application {
         }
     }
     
-    public void menuEmpleadoView(){
+    public void menuEmpleadoView(int op){
          try{
             MenuEmpleadosController menuEmpleadoView = (MenuEmpleadosController)switchScene("MenuEmpleadosView.fxml", 1200, 850);
+            menuEmpleadoView.setOp(op);
             menuEmpleadoView.setStage(this);
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -255,6 +258,24 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void formUsuarioView(){
+        try{
+            FormUsuarioController formUsuarioView = (FormUsuarioController) switchScene ("FormUsuarioView.fxml", 500, 750);
+            formUsuarioView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void formLoginView(){
+        try{
+            FormLoginController formLoginView = (FormLoginController) switchScene("FormLoginView.fxml", 500, 750);
+            formLoginView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -262,5 +283,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

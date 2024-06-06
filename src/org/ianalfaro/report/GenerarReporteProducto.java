@@ -36,12 +36,11 @@ public class GenerarReporteProducto {
         return instance;
     }
     
-    public void generarProducto(int proId){
+    public void generarProducto(){
         try{
             conexion = Conexion.getInstance().obtenerConexion();
             
             Map<String, Object> parametros = new HashMap<>();
-            parametros.put("proId", proId);
             
             Stage reportStage = new Stage();
             
@@ -52,7 +51,7 @@ public class GenerarReporteProducto {
             Pane root = new Pane();
             root.getChildren().add(reportView);
             
-            reportView.setPrefSize(1000, 800);
+            reportView.setPrefSize(1365, 740);
             
             Scene scene = new Scene(root);
             reportStage.setScene(scene);

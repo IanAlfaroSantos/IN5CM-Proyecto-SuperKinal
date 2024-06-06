@@ -52,6 +52,18 @@ public class SuperKinalAlert {
             alert.setHeaderText("Campos Pendientes");
             alert.setContentText("¡Algunos campos necesarios aun estan vacios!");
             alert.showAndWait();
+        }else if(code == 800){ // Codigo 600 sirve para alerta de usuario incorrecto
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Usuario Incorrecto");
+            alert.setHeaderText("El usuario ingresado es incorrecto");
+            alert.setContentText("Verificar el usuario");
+            alert.showAndWait();
+        }else if(code == 900){ // Codigo 600 sirve para alerta de contraseña incorrecta
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Contraseña Incorrecta");
+            alert.setHeaderText("Contraseña incorrecta");
+            alert.setContentText("Verificar la contraseña");
+            alert.showAndWait();
         }
     }
     
@@ -81,4 +93,10 @@ public class SuperKinalAlert {
         return action;
     }
     
+    public void alertaSaludo(String usuario){ // Sirve para la bienvenida al usuario
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Bienvenido :D");
+        alert.setHeaderText("Bienvenido " + usuario + " :D");
+        alert.showAndWait();
+    }
 }

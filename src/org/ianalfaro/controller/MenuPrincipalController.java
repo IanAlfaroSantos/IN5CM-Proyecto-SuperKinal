@@ -12,6 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import org.ianalfaro.report.GenerarReporteCliente;
+import org.ianalfaro.report.GenerarReporteFactura;
+import org.ianalfaro.report.GenerarReporteProducto;
 import org.ianalfaro.system.Main;
 
 /**
@@ -20,10 +23,12 @@ import org.ianalfaro.system.Main;
  */
 public class MenuPrincipalController implements Initializable {
     private Main stage;
+    private int op;
     
     @FXML
     MenuItem btnMenuClientes, btnMenuCargos, btnMenuEmpleados, btnMenuFacturas, btnMenuTickets, btnMenuDistribuidores,
-            btnMenuCategorias, btnMenuProductos, btnMenuPromociones, btnMenuDetallesFacturas, btnMenuCompras, btnMenuDetallesCompras;
+            btnMenuCategorias, btnMenuProductos, btnMenuPromociones, btnMenuDetallesFacturas, btnMenuCompras, btnMenuDetallesCompras,
+            btnLogin, btnReporteClientes, btnReporteFacturas, btnReporteProductos;
     
     @FXML
     public void handleButtonAction(ActionEvent event){
@@ -32,7 +37,7 @@ public class MenuPrincipalController implements Initializable {
         }else if(event.getSource() == btnMenuCargos){
             stage.menuCargosView();
         }else if(event.getSource() == btnMenuEmpleados){
-            stage.menuEmpleadoView();
+            stage.menuEmpleadoView(0);
         }else if(event.getSource() == btnMenuFacturas){
             stage.menuFacturaView();
         }else if(event.getSource() == btnMenuTickets){
@@ -47,6 +52,14 @@ public class MenuPrincipalController implements Initializable {
             stage.menuPromocionView();
         }else if(event.getSource() == btnMenuCompras){
             stage.menuComprasView();
+        }else if(event.getSource() == btnLogin){
+            stage.formLoginView();
+        }else if(event.getSource() == btnReporteClientes){
+            GenerarReporteCliente.getInstance().generarCliente();
+        }else if(event.getSource() == btnReporteFacturas){
+            stage.menuFacturaView();
+        }else if(event.getSource() == btnReporteProductos){
+            GenerarReporteProducto.getInstance().generarProducto();
         }
     }
     

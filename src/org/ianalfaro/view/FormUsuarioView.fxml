@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ianalfaro.controller.FormUsuarioController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/FondoFormEmpleado.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfUser" layoutX="35.0" layoutY="186.0" prefHeight="25.0" prefWidth="390.0" />
+      <PasswordField fx:id="tfPassword" layoutX="37.0" layoutY="300.0" prefHeight="25.0" prefWidth="390.0" />
+      <ComboBox fx:id="cmbEmpleadoId" layoutX="35.0" layoutY="414.0" prefHeight="25.0" prefWidth="390.0" />
+      <ComboBox fx:id="cmbNivelAccesoId" layoutX="35.0" layoutY="528.0" prefHeight="25.0" prefWidth="390.0" />
+      <Text fill="RED" layoutX="118.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGREGAR USUARIO" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="58.0" fitWidth="58.0" layoutX="383.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/ImagenForm.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="35.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="35.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTRASEÑA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="35.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="35.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIVEL DE ACCESO">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="53.0" layoutY="595.0" prefHeight="108.0" prefWidth="390.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="143.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="REGISTRAR USUARIO" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnAgregarEmpleado" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="143.0" style="-fx-background-radius: 20; -fx-border-radius: 15; -fx-background-color: #00FF59; -fx-border-color: #00FFE8; -fx-border-width: 5; -fx-effect: dropshadow(three-pass-box, white, 40,0,0,0);" text="AGREGAR EMPLEADO" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
